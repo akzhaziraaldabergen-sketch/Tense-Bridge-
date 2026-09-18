@@ -1,0 +1,2908 @@
+<!DOCTYPE html>
+<html lang="kz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TENSE BRIDGE — Шақтар көпірі</title>
+<meta name="description" content="Қазақ тілді оқушыларға арналған Present Perfect интерактивті электрондық анықтамалығы">
+<style>
+/* ============================================================
+   TENSE BRIDGE — STYLES
+   ============================================================ */
+:root{
+  --navy:#0B2545;
+  --navy-2:#123A63;
+  --blue:#1B6CA8;
+  --sky:#7FB3D5;
+  --sky-soft:#E9F4FB;
+  --gold:#F2B705;
+  --gold-dark:#D19A00;
+  --gold-soft:#FFF4D6;
+  --white:#FFFFFF;
+  --bg:#F6FAFD;
+  --text:#14283C;
+  --muted:#5B7288;
+  --line:#DCE8F2;
+  --green:#12A150;
+  --green-soft:#E2F8EC;
+  --red:#DC3B3B;
+  --red-soft:#FDE9E9;
+  --radius:18px;
+  --radius-sm:12px;
+  --shadow-sm:0 4px 14px rgba(11,37,69,.06);
+  --shadow:0 12px 34px rgba(11,37,69,.10);
+  --shadow-lg:0 22px 55px rgba(11,37,69,.18);
+  --font:"Segoe UI",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{
+  font-family:var(--font);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img,svg{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+.container{width:100%;max-width:1140px;margin:0 auto;padding:0 20px}
+
+/* ---------- HEADER ---------- */
+.site-header{
+  position:sticky;top:0;z-index:200;
+  background:rgba(255,255,255,.88);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+  transition:box-shadow .3s;
+}
+.site-header.scrolled{box-shadow:0 6px 24px rgba(11,37,69,.08)}
+.header-inner{display:flex;align-items:center;gap:18px;min-height:72px}
+
+.logo{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.logo-mark{
+  width:44px;height:44px;border-radius:13px;
+  background:linear-gradient(135deg,var(--navy),var(--blue));
+  color:#fff;display:grid;place-items:center;
+  font-weight:800;font-size:15px;letter-spacing:.5px;
+  box-shadow:0 6px 16px rgba(27,108,168,.35);
+  position:relative;overflow:hidden;
+}
+.logo-mark::after{
+  content:"";position:absolute;inset:auto -8px -14px -8px;height:20px;
+  background:var(--gold);border-radius:50%;opacity:.55;
+}
+.logo-text{display:flex;flex-direction:column;line-height:1.15}
+.logo-text strong{font-size:16px;letter-spacing:1.2px;color:var(--navy);font-weight:800}
+.logo-text small{font-size:11.5px;color:var(--muted);letter-spacing:.4px}
+
+.main-nav{margin-left:auto;display:flex;gap:2px;align-items:center}
+.main-nav a{
+  font-size:14px;font-weight:600;color:var(--navy-2);
+  padding:8px 11px;border-radius:10px;transition:.2s;white-space:nowrap;
+}
+.main-nav a:hover{background:var(--sky-soft);color:var(--blue)}
+.main-nav a.active{background:var(--navy);color:#fff}
+
+.header-actions{display:flex;align-items:center;gap:10px;margin-left:auto}
+.main-nav + .header-actions{margin-left:14px}
+
+.lang-switch{
+  display:flex;background:var(--sky-soft);border-radius:11px;padding:3px;gap:2px;
+}
+.lang-switch button{
+  font-size:12.5px;font-weight:800;letter-spacing:.6px;
+  padding:6px 11px;border-radius:8px;color:var(--navy-2);transition:.2s;
+}
+.lang-switch button.active{background:var(--navy);color:#fff;box-shadow:0 3px 10px rgba(11,37,69,.25)}
+.lang-switch button:not(.active):hover{background:#fff}
+
+.burger{
+  display:none;width:42px;height:42px;border-radius:11px;
+  background:var(--sky-soft);place-items:center;
+}
+.burger span{display:block;width:19px;height:2px;background:var(--navy);border-radius:2px;position:relative;transition:.25s}
+.burger span::before,.burger span::after{
+  content:"";position:absolute;left:0;width:19px;height:2px;background:var(--navy);border-radius:2px;transition:.25s;
+}
+.burger span::before{top:-6px}
+.burger span::after{top:6px}
+.burger.open span{background:transparent}
+.burger.open span::before{top:0;transform:rotate(45deg)}
+.burger.open span::after{top:0;transform:rotate(-45deg)}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 82% 12%, rgba(127,179,213,.35), transparent 46%),
+    radial-gradient(circle at 8% 88%, rgba(242,183,5,.18), transparent 42%),
+    linear-gradient(140deg,#081C36 0%,var(--navy) 42%,var(--navy-2) 72%,var(--blue) 130%);
+  color:#fff;padding:74px 0 118px;
+}
+.hero::before{
+  content:"";position:absolute;width:520px;height:520px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.08);top:-190px;right:-140px;
+}
+.hero::after{
+  content:"";position:absolute;width:340px;height:340px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.07);bottom:-140px;left:-100px;
+}
+.hero-grid{
+  position:relative;z-index:2;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(242,183,5,.16);border:1px solid rgba(242,183,5,.42);
+  color:var(--gold);font-size:12.5px;font-weight:700;letter-spacing:.3px;
+  padding:7px 14px;border-radius:999px;margin-bottom:20px;
+}
+.hero-badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.hero h1{
+  font-size:clamp(38px,6vw,62px);line-height:1.02;font-weight:900;
+  letter-spacing:-1px;margin-bottom:6px;
+}
+.hero h1 .accent{
+  background:linear-gradient(100deg,var(--gold),#FFE07A);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-sub{
+  font-size:clamp(17px,2.3vw,22px);font-weight:700;color:#BFDCF0;
+  letter-spacing:.4px;margin-bottom:18px;
+}
+.hero-slogan{
+  font-size:clamp(16px,2vw,19px);color:#E8F4FB;font-weight:600;
+  margin-bottom:14px;max-width:560px;
+}
+.hero-lead{color:#A9C7DD;font-size:15.5px;max-width:600px;margin-bottom:30px}
+
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-size:15px;font-weight:700;padding:14px 26px;border-radius:13px;
+  transition:transform .18s, box-shadow .22s, background .22s, color .22s;
+  border:2px solid transparent;white-space:nowrap;
+}
+.btn:active{transform:translateY(1px) scale(.99)}
+.btn-gold{background:var(--gold);color:#241A00;box-shadow:0 10px 26px rgba(242,183,5,.32)}
+.btn-gold:hover{background:#FFCB2E;transform:translateY(-2px);box-shadow:0 16px 34px rgba(242,183,5,.42)}
+.btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.65);transform:translateY(-2px)}
+.btn-navy{background:var(--navy);color:#fff;box-shadow:0 10px 24px rgba(11,37,69,.24)}
+.btn-navy:hover{background:var(--navy-2);transform:translateY(-2px)}
+.btn-outline{border-color:var(--line);color:var(--navy);background:#fff}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
+.btn-sm{padding:10px 18px;font-size:14px;border-radius:11px}
+
+/* Hero example card */
+.hero-card{
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:22px;padding:26px 24px;
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  box-shadow:0 24px 60px rgba(0,0,0,.28);
+}
+.hero-card-label{
+  font-size:11.5px;font-weight:800;letter-spacing:1.6px;color:var(--gold);
+  text-transform:uppercase;margin-bottom:14px;
+}
+.hero-card .en{
+  font-size:21px;font-weight:800;color:#fff;line-height:1.35;margin-bottom:10px;
+}
+.hero-card .en em{color:var(--gold);font-style:normal}
+.hero-card .kz{font-size:16px;color:#CFE6F5;margin-bottom:16px}
+.hero-card-note{
+  font-size:14px;color:#A9C7DD;border-top:1px solid rgba(255,255,255,.14);padding-top:15px;
+}
+
+/* Bridge decoration */
+.bridge-deco{
+  position:absolute;bottom:0;left:0;right:0;height:64px;z-index:1;opacity:.5;
+}
+
+/* ---------- SECTIONS ---------- */
+.section{padding:78px 0;position:relative}
+.section.alt{background:#fff}
+.section.tinted{background:linear-gradient(180deg,var(--sky-soft),#fff)}
+
+.section-head{max-width:760px;margin-bottom:42px}
+.section-kicker{
+  display:inline-block;font-size:12px;font-weight:800;letter-spacing:1.8px;
+  text-transform:uppercase;color:var(--blue);margin-bottom:12px;
+}
+.section-title{
+  font-size:clamp(26px,4vw,38px);font-weight:900;color:var(--navy);
+  line-height:1.15;letter-spacing:-.6px;margin-bottom:12px;
+}
+.section-title::after{
+  content:"";display:block;width:64px;height:5px;border-radius:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-soft));margin-top:16px;
+}
+.section-sub{color:var(--muted);font-size:16.5px;margin-top:16px}
+
+/* ---------- CARDS / GRIDS ---------- */
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px;box-shadow:var(--shadow-sm);transition:transform .22s, box-shadow .22s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+
+/* Definition block */
+.def-box{
+  background:linear-gradient(135deg,var(--navy),var(--navy-2));
+  color:#fff;border-radius:var(--radius);padding:32px 30px;
+  box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.def-box::after{
+  content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;
+  border-radius:50%;background:rgba(242,183,5,.14);
+}
+.def-box h3{font-size:14px;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;font-weight:800}
+.def-box p{font-size:17px;line-height:1.7;position:relative;z-index:2}
+
+/* Formula */
+.formula{
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px;
+  background:#fff;border:2px dashed var(--sky);border-radius:var(--radius);
+  padding:22px 24px;margin:24px 0;justify-content:center;
+}
+.formula .chip{
+  padding:9px 18px;border-radius:11px;font-weight:800;font-size:16px;
+  background:var(--sky-soft);color:var(--navy);
+}
+.formula .chip.gold{background:var(--gold-soft);color:var(--gold-dark)}
+.formula .chip.navy{background:var(--navy);color:#fff}
+.formula .plus{font-size:20px;font-weight:800;color:var(--sky)}
+.formula-note{text-align:center;color:var(--muted);font-size:14.5px;margin-top:-8px}
+
+/* Example table */
+.ex-table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm)}
+.ex-table th{
+  background:var(--navy);color:#fff;font-size:13px;letter-spacing:.8px;
+  text-transform:uppercase;padding:15px 18px;text-align:left;font-weight:800;
+}
+.ex-table td{padding:16px 18px;border-top:1px solid var(--line);vertical-align:top;font-size:15.5px}
+.ex-table tr.explain-row td{background:var(--sky-soft);font-size:14.5px;color:var(--navy-2);border-top:none;padding-top:12px;padding-bottom:18px}
+.ex-table td.en-cell{font-weight:700;color:var(--blue)}
+.ex-table td.kz-cell{color:var(--navy)}
+.ex-table tr:hover td:not(.explain-row){background:#FBFDFF}
+
+/* Formation tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.tab-btn{
+  padding:12px 22px;border-radius:12px;font-weight:700;font-size:14.5px;
+  background:#fff;border:2px solid var(--line);color:var(--navy-2);transition:.2s;
+}
+.tab-btn:hover{border-color:var(--sky)}
+.tab-btn.active{background:var(--navy);color:#fff;border-color:var(--navy);box-shadow:0 8px 20px rgba(11,37,69,.2)}
+.tab-panel{display:none;animation:fadeUp .35s ease}
+.tab-panel.active{display:block}
+
+.form-block{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow-sm)}
+.form-block .fml{
+  display:inline-block;background:var(--gold-soft);color:var(--gold-dark);
+  font-weight:800;padding:10px 18px;border-radius:11px;font-size:16px;margin-bottom:18px;
+  letter-spacing:.3px;
+}
+.ex-line{
+  display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;
+  padding:12px 0;border-bottom:1px dashed var(--line);
+}
+.ex-line:last-child{border-bottom:none}
+.ex-line .e{font-weight:700;color:var(--blue);font-size:16px}
+.ex-line .t{color:var(--muted);font-size:14.5px}
+
+/* have/has interactive */
+.hh-wrap{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+.subject-grid{display:flex;flex-wrap:wrap;gap:10px}
+.subj-btn{
+  padding:13px 24px;border-radius:13px;font-weight:800;font-size:16px;
+  background:#fff;border:2px solid var(--line);color:var(--navy);transition:.2s;min-width:74px;
+}
+.subj-btn:hover{border-color:var(--gold);transform:translateY(-2px)}
+.subj-btn.active{background:var(--gold);border-color:var(--gold);color:#241A00;box-shadow:0 10px 22px rgba(242,183,5,.35)}
+.hh-result{
+  background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;
+  border-radius:var(--radius);padding:28px;min-height:180px;
+  display:flex;flex-direction:column;justify-content:center;gap:10px;
+  box-shadow:var(--shadow);transition:.25s;
+}
+.hh-result .big{font-size:34px;font-weight:900;letter-spacing:-.5px}
+.hh-result .big em{font-style:normal;color:var(--gold)}
+.hh-result .exm{font-size:15.5px;color:#D3E8F7}
+.hh-result .exm-tr{font-size:14.5px;color:#9FC0D8}
+
+/* V3 cards */
+.verb-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.verb-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:18px 16px;cursor:pointer;transition:.24s;box-shadow:var(--shadow-sm);
+  text-align:center;position:relative;overflow:hidden;
+}
+.verb-card::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--gold),var(--sky));
+  transform:scaleX(0);transform-origin:left;transition:.28s;
+}
+.verb-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--sky)}
+.verb-card:hover::before,.verb-card.open::before{transform:scaleX(1)}
+.verb-card.open{border-color:var(--gold);background:#FFFDF6}
+.verb-forms{display:flex;justify-content:center;gap:8px;align-items:center;font-weight:800;font-size:15px;color:var(--navy);margin-bottom:6px;flex-wrap:wrap}
+.verb-forms .v3{color:var(--gold-dark)}
+.verb-forms .arrow{color:var(--sky);font-weight:600}
+.verb-card .hint{font-size:12px;color:var(--muted);letter-spacing:.4px}
+.verb-extra{
+  max-height:0;overflow:hidden;transition:max-height .32s ease, opacity .3s;
+  opacity:0;margin-top:0;
+}
+.verb-card.open .verb-extra{max-height:220px;opacity:1;margin-top:12px}
+.verb-extra .tr{font-weight:700;color:var(--blue);font-size:15px;margin-bottom:6px}
+.verb-extra .exs{font-size:14px;color:var(--text);font-style:italic}
+.verb-extra .exs-tr{font-size:13px;color:var(--muted);margin-top:4px}
+
+/* Usage cards */
+.usage-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px;box-shadow:var(--shadow-sm);transition:.24s;position:relative;
+  border-top:5px solid var(--sky);
+}
+.usage-card:nth-child(1){border-top-color:var(--gold)}
+.usage-card:nth-child(2){border-top-color:var(--blue)}
+.usage-card:nth-child(3){border-top-color:#28A9A0}
+.usage-card:nth-child(4){border-top-color:#E2725B}
+.usage-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.usage-icon{
+  width:52px;height:52px;border-radius:15px;display:grid;place-items:center;
+  background:var(--sky-soft);font-size:24px;margin-bottom:16px;
+}
+.usage-card h3{font-size:17.5px;color:var(--navy);font-weight:800;margin-bottom:12px;line-height:1.3}
+.usage-card .u-ex{font-weight:700;color:var(--blue);font-size:16px;margin-bottom:5px}
+.usage-card .u-tr{color:var(--muted);font-size:14.5px;margin-bottom:12px}
+.usage-card .u-when{
+  font-size:13.5px;color:var(--navy-2);background:var(--sky-soft);
+  border-radius:10px;padding:10px 13px;border-left:3px solid var(--gold);
+}
+
+/* Markers */
+.marker-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.marker-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:18px 18px;cursor:pointer;transition:.22s;box-shadow:var(--shadow-sm);
+}
+.marker-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:var(--shadow)}
+.marker-card .w{font-size:19px;font-weight:900;color:var(--navy);letter-spacing:.2px}
+.marker-card .tr{font-size:14px;color:var(--blue);font-weight:600;margin-top:2px}
+.marker-extra{max-height:0;overflow:hidden;opacity:0;transition:max-height .34s ease,opacity .3s;margin-top:0}
+.marker-card.open .marker-extra{max-height:300px;opacity:1;margin-top:12px}
+.marker-extra .use{font-size:14px;color:var(--muted);margin-bottom:10px}
+.marker-extra .ex{font-size:14.5px;font-weight:700;color:var(--blue)}
+.marker-extra .ex-tr{font-size:13.5px;color:var(--muted)}
+
+/* Difficulties */
+.diff-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;box-shadow:var(--shadow-sm);transition:.22s;
+  border-left:5px solid var(--gold);
+}
+.diff-card:hover{transform:translateX(4px);box-shadow:var(--shadow)}
+.diff-card .d-num{
+  display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;
+  background:var(--navy);color:#fff;font-weight:800;font-size:14px;margin-bottom:12px;
+}
+.diff-card h3{font-size:16.5px;color:var(--navy);font-weight:800;margin-bottom:14px;line-height:1.35}
+.diff-row{display:flex;gap:11px;margin-bottom:10px;font-size:14.5px;line-height:1.6}
+.diff-row:last-child{margin-bottom:0}
+.diff-tag{
+  flex-shrink:0;font-size:11.5px;font-weight:800;letter-spacing:.4px;
+  padding:4px 10px;border-radius:7px;height:fit-content;text-transform:uppercase;
+}
+.tag-cause{background:var(--red-soft);color:var(--red)}
+.tag-solve{background:var(--green-soft);color:var(--green)}
+.diff-row p{color:var(--navy-2)}
+
+/* Exercises */
+.ex-block{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px;margin-bottom:22px;box-shadow:var(--shadow-sm);
+}
+.ex-head{display:flex;align-items:center;gap:12px;margin-bottom:8px;flex-wrap:wrap}
+.ex-badge{
+  width:34px;height:34px;border-radius:10px;background:var(--gold);color:#241A00;
+  display:grid;place-items:center;font-weight:900;font-size:15px;flex-shrink:0;
+}
+.ex-head h3{font-size:18px;color:var(--navy);font-weight:800}
+.ex-sub{color:var(--muted);font-size:14.5px;margin-bottom:20px}
+
+.q-item{padding:16px 0;border-bottom:1px dashed var(--line)}
+.q-item:last-of-type{border-bottom:none}
+.q-text{font-size:16.5px;font-weight:700;color:var(--navy);margin-bottom:13px}
+.q-text .blank{color:var(--gold-dark);letter-spacing:2px}
+
+.opt-list{display:flex;flex-wrap:wrap;gap:10px}
+.opt-btn{
+  padding:11px 22px;border-radius:11px;border:2px solid var(--line);background:#fff;
+  font-size:15px;font-weight:700;color:var(--navy-2);transition:.18s;
+}
+.opt-btn:hover:not(:disabled){border-color:var(--sky);background:var(--sky-soft)}
+.opt-btn:disabled{cursor:default;opacity:.85}
+.opt-btn.correct{background:var(--green-soft);border-color:var(--green);color:var(--green);opacity:1}
+.opt-btn.wrong{background:var(--red-soft);border-color:var(--red);color:var(--red);opacity:1}
+
+.fill-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:16.5px;font-weight:700;color:var(--navy)}
+.fill-row input{
+  font-family:inherit;font-size:16px;font-weight:700;padding:11px 16px;
+  border:2px solid var(--line);border-radius:11px;width:170px;color:var(--navy);
+  outline:none;transition:.2s;background:#fff;
+}
+.fill-row input:focus{border-color:var(--sky);box-shadow:0 0 0 4px rgba(127,179,213,.22)}
+.fill-row input.correct{border-color:var(--green);background:var(--green-soft);color:var(--green)}
+.fill-row input.wrong{border-color:var(--red);background:var(--red-soft);color:var(--red)}
+.hint-inline{font-size:13px;color:var(--muted);font-weight:600}
+
+.order-area{
+  display:flex;flex-wrap:wrap;gap:10px;min-height:56px;
+  border:2px dashed var(--sky);border-radius:12px;padding:12px;background:#FBFDFF;margin-bottom:14px;
+}
+.order-area .placeholder{color:var(--muted);font-size:14px;font-weight:600;align-self:center}
+.word-chip{
+  padding:10px 18px;border-radius:10px;background:var(--sky-soft);color:var(--navy);
+  font-weight:700;font-size:15px;border:2px solid transparent;transition:.18s;
+}
+.word-chip:hover{background:#D7EBF7;transform:translateY(-2px)}
+.word-bank{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+.word-bank .word-chip{background:#fff;border:2px solid var(--line)}
+.word-bank .word-chip.used{opacity:.28;pointer-events:none}
+
+.fb{
+  margin-top:14px;border-radius:12px;padding:14px 16px;font-size:14.5px;
+  display:none;animation:fadeUp .3s ease;line-height:1.6;
+}
+.fb.show{display:block}
+.fb.ok{background:var(--green-soft);border-left:4px solid var(--green);color:#0B5B31}
+.fb.no{background:var(--red-soft);border-left:4px solid var(--red);color:#8A1F1F}
+.fb b{font-weight:800}
+.fb .ans{display:block;margin-top:6px;font-weight:800}
+.fb .exp{display:block;margin-top:8px;font-size:13.8px;opacity:.9;font-weight:500}
+
+.btn-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+
+/* Score bar */
+.score-bar{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;
+  border-radius:var(--radius);padding:18px 24px;margin-bottom:26px;
+  box-shadow:var(--shadow);
+}
+.score-bar .sb-item{display:flex;align-items:baseline;gap:8px}
+.score-bar .sb-label{font-size:13px;color:#A9C7DD;font-weight:600}
+.score-bar .sb-value{font-size:22px;font-weight:900;color:var(--gold)}
+.score-bar .sb-sep{width:1px;height:26px;background:rgba(255,255,255,.2)}
+
+/* Test */
+.test-box{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px;box-shadow:var(--shadow);
+}
+.test-progress{height:8px;background:var(--sky-soft);border-radius:99px;overflow:hidden;margin-bottom:24px}
+.test-progress span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--sky));width:0;transition:width .4s ease;border-radius:99px}
+.test-q-num{font-size:12.5px;font-weight:800;letter-spacing:1.4px;color:var(--blue);text-transform:uppercase;margin-bottom:10px}
+.test-question{font-size:20px;font-weight:800;color:var(--navy);margin-bottom:20px;line-height:1.4}
+.test-options{display:grid;gap:11px;margin-bottom:22px}
+.test-opt{
+  text-align:left;padding:15px 20px;border-radius:13px;border:2px solid var(--line);
+  background:#fff;font-size:16px;font-weight:600;color:var(--navy-2);transition:.18s;
+}
+.test-opt:hover:not(:disabled){border-color:var(--sky);background:var(--sky-soft);transform:translateX(3px)}
+.test-opt.correct{background:var(--green-soft);border-color:var(--green);color:var(--green);font-weight:800}
+.test-opt.wrong{background:var(--red-soft);border-color:var(--red);color:var(--red);font-weight:800}
+.test-opt:disabled{cursor:default}
+
+.test-result{display:none;text-align:center;animation:fadeUp .4s ease}
+.test-result.show{display:block}
+.result-score{
+  font-size:56px;font-weight:900;color:var(--navy);letter-spacing:-2px;line-height:1;
+  margin-bottom:6px;
+}
+.result-score em{font-style:normal;color:var(--gold);font-size:34px}
+.result-title{font-size:22px;font-weight:800;color:var(--blue);margin-bottom:18px}
+.result-stats{display:flex;justify-content:center;gap:34px;flex-wrap:wrap;margin-bottom:22px}
+.result-stat{text-align:center}
+.result-stat .n{font-size:26px;font-weight:900;color:var(--navy)}
+.result-stat .l{font-size:13px;color:var(--muted);font-weight:600}
+.result-advice{
+  background:var(--sky-soft);border-radius:14px;padding:18px 22px;font-size:15px;
+  color:var(--navy-2);max-width:640px;margin:0 auto 24px;line-height:1.65;
+}
+.wrong-list{text-align:left;max-width:720px;margin:0 auto 24px}
+.wrong-list h4{font-size:15px;color:var(--navy);margin-bottom:12px;font-weight:800}
+.wrong-item{
+  background:var(--red-soft);border-radius:11px;padding:13px 16px;margin-bottom:9px;
+  font-size:14.5px;color:#8A1F1F;line-height:1.55;
+}
+.wrong-item b{display:block;margin-bottom:3px;font-weight:800}
+.wrong-item .right{color:var(--green);font-weight:800}
+
+/* Progress */
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:26px}
+.prog-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px;text-align:center;box-shadow:var(--shadow-sm);
+}
+.prog-card .n{font-size:38px;font-weight:900;color:var(--navy);line-height:1.1;letter-spacing:-1px}
+.prog-card .n em{font-style:normal;color:var(--gold);font-size:22px}
+.prog-card .l{font-size:13.5px;color:var(--muted);font-weight:700;margin-top:6px;letter-spacing:.3px}
+.prog-ring{
+  width:88px;height:88px;border-radius:50%;margin:0 auto 12px;
+  display:grid;place-items:center;position:relative;
+}
+.prog-ring .inner{
+  width:70px;height:70px;border-radius:50%;background:#fff;
+  display:grid;place-items:center;font-weight:900;font-size:18px;color:var(--navy);
+}
+.topics-list{display:flex;flex-wrap:wrap;gap:10px}
+.topic-chip{
+  display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;
+  font-size:14px;font-weight:700;background:#fff;border:2px solid var(--line);color:var(--muted);
+  transition:.25s;
+}
+.topic-chip.done{background:var(--green-soft);border-color:var(--green);color:#0B5B31}
+.topic-chip .tick{
+  width:18px;height:18px;border-radius:50%;background:var(--line);display:grid;place-items:center;
+  font-size:11px;color:#fff;flex-shrink:0;transition:.25s;
+}
+.topic-chip.done .tick{background:var(--green)}
+
+/* Conclusion */
+.concl-box{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 55%,var(--blue) 130%);
+  color:#fff;border-radius:24px;padding:52px 44px;text-align:center;
+  box-shadow:var(--shadow-lg);position:relative;overflow:hidden;
+}
+.concl-box::before{
+  content:"";position:absolute;width:320px;height:320px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.1);top:-130px;right:-80px;
+}
+.concl-box h2{font-size:clamp(24px,3.4vw,34px);font-weight:900;margin-bottom:18px;position:relative;z-index:2}
+.concl-box p{font-size:17px;color:#CFE6F5;max-width:760px;margin:0 auto 30px;line-height:1.75;position:relative;z-index:2}
+.concl-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;position:relative;z-index:2}
+
+/* Footer */
+.site-footer{background:#081C36;color:#8FAEC7;padding:44px 0 34px;margin-top:0}
+.footer-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:34px;align-items:start}
+.footer-brand{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.footer-brand .logo-mark{width:40px;height:40px;font-size:13px}
+.footer-brand strong{color:#fff;font-size:15px;letter-spacing:1px;display:block}
+.footer-brand small{font-size:12px;color:#8FAEC7}
+.footer-note{font-size:14px;line-height:1.7;max-width:460px}
+.footer-info{display:grid;gap:9px;font-size:14px}
+.footer-info div{display:flex;gap:10px}
+.footer-info span:first-child{color:var(--gold);font-weight:700;min-width:104px;flex-shrink:0}
+.footer-info span:last-child{color:#D6E7F3}
+.footer-bottom{
+  margin-top:32px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);
+  text-align:center;font-size:13px;color:#6C8CA6;
+}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* Toast */
+.toast{
+  position:fixed;bottom:26px;left:50%;transform:translate(-50%,120%);
+  background:var(--navy);color:#fff;padding:14px 26px;border-radius:13px;
+  font-size:14.5px;font-weight:700;box-shadow:var(--shadow-lg);z-index:500;
+  transition:transform .35s cubic-bezier(.2,.9,.3,1.3);pointer-events:none;
+  max-width:90vw;text-align:center;
+}
+.toast.show{transform:translate(-50%,0)}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1040px){
+  .main-nav{display:none}
+  .burger{display:grid}
+  .main-nav.open{
+    display:flex;flex-direction:column;align-items:stretch;
+    position:absolute;top:72px;left:0;right:0;background:#fff;
+    padding:14px 20px 20px;border-bottom:1px solid var(--line);
+    box-shadow:0 18px 40px rgba(11,37,69,.13);gap:4px;margin:0;
+  }
+  .main-nav.open a{padding:13px 15px;border-radius:11px;font-size:15px}
+  .hero-grid{grid-template-columns:1fr;gap:38px}
+  .hero-card{max-width:520px}
+  .grid-4{grid-template-columns:repeat(2,1fr)}
+  .verb-grid{grid-template-columns:repeat(3,1fr)}
+  .marker-grid{grid-template-columns:repeat(2,1fr)}
+  .prog-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:760px){
+  .section{padding:58px 0}
+  .hero{padding:52px 0 96px}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .hh-wrap{grid-template-columns:1fr}
+  .verb-grid{grid-template-columns:repeat(2,1fr)}
+  .marker-grid{grid-template-columns:1fr}
+  .prog-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr;gap:26px}
+  .concl-box{padding:38px 22px}
+  .ex-block,.card,.test-box{padding:20px}
+  .ex-table th,.ex-table td{padding:12px 13px;font-size:14.5px}
+  .hero-btns .btn{width:100%}
+  .header-actions{gap:7px}
+  .logo-text small{display:none}
+  .score-bar{gap:12px;padding:15px 18px}
+  .result-score{font-size:44px}
+}
+@media(max-width:420px){
+  .verb-grid{grid-template-columns:1fr}
+  .lang-switch button{padding:6px 8px;font-size:11.5px}
+  .subject-grid{gap:8px}
+  .subj-btn{padding:11px 16px;font-size:15px;min-width:60px}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a class="logo" href="#home">
+      <span class="logo-mark">TB</span>
+      <span class="logo-text">
+        <strong>TENSE BRIDGE</strong>
+        <small data-t="brand_sub">Шақтар көпірі</small>
+      </span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#home" class="active" data-t="nav_home">Басты бет</a>
+      <a href="#theory" data-t="nav_theory">Теория</a>
+      <a href="#compare" data-t="nav_compare">Салыстыру</a>
+      <a href="#usage" data-t="nav_usage">Қолданылуы</a>
+      <a href="#diff" data-t="nav_diff">Қиындықтар</a>
+      <a href="#practice" data-t="nav_practice">Жаттығулар</a>
+      <a href="#test" data-t="nav_test">Тест</a>
+      <a href="#progress" data-t="nav_progress">Прогресс</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-switch" id="langSwitch">
+        <button data-lang="kz" class="active">KZ</button>
+        <button data-lang="en">EN</button>
+        <button data-lang="ru">RU</button>
+      </div>
+      <button class="burger" id="burger" aria-label="Menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <div class="hero-badge" data-t="hero_badge">Ғылыми жоба негізіндегі электрондық анықтамалық</div>
+      <h1>TENSE <span class="accent">BRIDGE</span></h1>
+      <div class="hero-sub" data-t="hero_sub">Шақтар көпірі</div>
+      <p class="hero-slogan" data-t="hero_slogan">«Қазақ тілінен ағылшын тіліндегі шақтар әлеміне саяхат жаса!»</p>
+      <p class="hero-lead" data-t="hero_lead">Present Perfect — өткен уақытта орындалған әрекеттің қазіргі уақытпен байланысын, нәтижесін немесе тәжірибесін білдіретін ағылшын тіліндегі грамматикалық форма.</p>
+      <div class="hero-btns">
+        <a href="#theory" class="btn btn-gold" data-t="hero_btn1">Оқуды бастау</a>
+        <a href="#test" class="btn btn-ghost" data-t="hero_btn2">Өз біліміңді тексер</a>
+        <a href="#compare" class="btn btn-ghost" data-t="hero_btn3">Шақтарды салыстыру</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-card-label" data-t="hero_card_label">Мысал</div>
+      <div class="en">I <em>have finished</em> my homework.</div>
+      <div class="kz" data-t="hero_card_kz">Мен үй тапсырмамды орындап қойдым.</div>
+      <div class="hero-card-note" data-t="hero_card_note">Бұл сөйлемде әрекет өткен уақытта орындалған, бірақ оның нәтижесі қазіргі уақытпен байланысты.</div>
+    </div>
+  </div>
+
+  <svg class="bridge-deco" viewBox="0 0 1200 64" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,64 C200,4 400,4 600,4 C800,4 1000,4 1200,64" fill="none" stroke="rgba(242,183,5,.35)" stroke-width="2"/>
+    <path d="M0,64 C200,24 400,24 600,24 C800,24 1000,24 1200,64" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1.5"/>
+    <line x1="150" y1="64" x2="150" y2="26" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>
+    <line x1="400" y1="64" x2="400" y2="12" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>
+    <line x1="600" y1="64" x2="600" y2="8" stroke="rgba(242,183,5,.3)" stroke-width="1.5"/>
+    <line x1="800" y1="64" x2="800" y2="12" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>
+    <line x1="1050" y1="64" x2="1050" y2="26" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>
+  </svg>
+</section>
+
+<!-- ================= THEORY ================= -->
+<section class="section" id="theory">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-kicker" data-t="kick_theory">Теория</span>
+      <h2 class="section-title" data-t="theory_title">Present Perfect дегеніміз не?</h2>
+      <p class="section-sub" data-t="theory_sub">Present Perfect формасын қарапайым тілде түсініп алайық.</p>
+    </div>
+
+    <div class="def-box reveal" style="margin-bottom:26px">
+      <h3 data-t="theory_def_title">Анықтамасы</h3>
+      <p data-t="theory_def">Present Perfect — өткен уақытта орындалған әрекеттің қазіргі уақытпен байланысын, нәтижесін немесе тәжірибесін білдіретін ағылшын тіліндегі грамматикалық форма.</p>
+    </div>
+
+    <div class="reveal">
+      <h3 style="color:var(--navy);font-size:19px;margin-bottom:8px" data-t="theory_formula_title">Формуласы</h3>
+      <div class="formula">
+        <span class="chip">Subject</span><span class="plus">+</span>
+        <span class="chip gold">have / has</span><span class="plus">+</span>
+        <span class="chip navy">V3</span>
+      </div>
+      <p class="formula-note" data-t="theory_formula_note">Мұндағы V3 — етістіктің үшінші формасы (Past Participle).</p>
+    </div>
+
+    <h3 class="reveal" style="color:var(--navy);font-size:19px;margin:38px 0 18px" data-t="theory_ex_title">Мысалдар</h3>
+    <div class="reveal" style="overflow-x:auto">
+      <table class="ex-table">
+        <thead>
+          <tr>
+            <th data-t="th_en">Ағылшынша</th>
+            <th data-t="th_kz">Қазақша</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="en-cell">I have finished my project.</td>
+            <td class="kz-cell" data-t="ex1_kz">Мен жобамды аяқтап қойдым.</td>
+          </tr>
+          <tr class="explain-row"><td colspan="2" data-t="ex1_note">Әрекет өткен уақытта орындалды, бірақ оның нәтижесі қазір маңызды: жоба дайын.</td></tr>
+
+          <tr>
+            <td class="en-cell">She has cleaned her room.</td>
+            <td class="kz-cell" data-t="ex2_kz">Ол бөлмесін тазалап қойды.</td>
+          </tr>
+          <tr class="explain-row"><td colspan="2" data-t="ex2_note">She — үшінші жақ жекеше, сондықтан <b>has</b> қолданылады. Нәтиже: бөлме таза.</td></tr>
+
+          <tr>
+            <td class="en-cell">They have visited London.</td>
+            <td class="kz-cell" data-t="ex3_kz">Олар Лондонға барып көрді.</td>
+          </tr>
+          <tr class="explain-row"><td colspan="2" data-t="ex3_note">Бұл — өмірлік тәжірибе. Қашан болғаны маңызды емес, тәжірибенің өзі маңызды.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FORMATION ================= -->
+<section class="section alt" id="form">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-kicker" data-t="kick_form">Форма</span>
+      <h2 class="section-title" data-t="form_title">Present Perfect формасының жасалу жолы</h2>
+      <p class="section-sub" data-t="form_sub">Үш түрлі сөйлем түрін бір-бірлеп қарап шығайық.</p>
+    </div>
+
+    <div class="tabs reveal" id="formTabs">
+      <button class="tab-btn active" data-tab="aff" data-t="form_aff_t">1. Affirmative — Болымды</button>
+      <button class="tab-btn" data-tab="neg" data-t="form_neg_t">2. Negative — Болымсыз</button>
+      <button class="tab-btn" data-tab="int" data-t="form_int_t">3. Interrogative — Сұраулы</button>
+    </div>
+
+    <!-- Affirmative -->
+    <div class="tab-panel active" data-panel="aff">
+      <div class="form-block">
+        <div class="fml">Subject + have / has + V3</div>
+        <div class="ex-line"><span class="e">I have eaten.</span><span class="t" data-t="f_aff_1">Мен тамақ жеп қойдым.</span></div>
+        <div class="ex-line"><span class="e">She has eaten.</span><span class="t" data-t="f_aff_2">Ол тамақ жеп қойды.</span></div>
+        <p style="margin-top:16px;color:var(--muted);font-size:14.5px" data-t="form_aff_note">Болымды сөйлемде көмекші етістік subject-тен кейін, негізгі етістіктің V3 формасы соңында тұрады.</p>
+      </div>
+    </div>
+
+    <!-- Negative -->
+    <div class="tab-panel" data-panel="neg">
+      <div class="form-block">
+        <div class="fml">Subject + have / has + not + V3</div>
+        <div class="ex-line"><span class="e">I haven't eaten.</span><span class="t" data-t="f_neg_1">Мен тамақ жеген жоқпын.</span></div>
+        <div class="ex-line"><span class="e">She hasn't eaten.</span><span class="t" data-t="f_neg_2">Ол тамақ жеген жоқ.</span></div>
+        <p style="margin-top:16px;color:var(--muted);font-size:14.5px" data-t="form_neg_note">Болымсыз сөйлемде <b>not</b> көмекші етістіктен кейін қосылады: have not → haven't, has not → hasn't.</p>
+      </div>
+    </div>
+
+    <!-- Interrogative -->
+    <div class="tab-panel" data-panel="int">
+      <div class="form-block">
+        <div class="fml">Have / Has + Subject + V3 ?</div>
+        <div class="ex-line"><span class="e">Have you eaten?</span><span class="t" data-t="f_int_1">Сен тамақ жедің бе?</span></div>
+        <div class="ex-line"><span class="e">Has she arrived?</span><span class="t" data-t="f_int_2">Ол келді ме?</span></div>
+        <p style="margin-top:16px;color:var(--muted);font-size:14.5px" data-t="form_int_note">Сұраулы сөйлемде көмекші етістік subject-тен бұрын тұрады.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= HAVE / HAS ================= -->
+<section class="section tinted" id="hh">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-kicker" data-t="kick_hh">Интерактив</span>
+      <h2 class="section-title" data-t="hh_title">Have / Has таңдау</h2>
+      <p class="section-sub" data-t="hh_sub">Subject таңдаңыз — дұрыс көмекші етістікті көріңіз.</p>
+    </div>
+
+    <div class="hh-wrap reveal">
+      <div>
+        <p style="font-weight:800;color:var(--navy);margin-bottom:14px" data-t="hh_pick">Subject таңдаңыз:</p>
+        <div class="subject-grid" id="subjectGrid"></div>
+        <div style="margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;font-size:14.5px;color:var(--navy-2);box-shadow:var(--shadow-sm)">
+          <b style="color:var(--navy)">I / You / We / They</b> → <b style="color:var(--gold-dark)">have</b><br>
+          <b style="color:var(--navy)">He / She / It</b> → <b style="color:var(--gold-dark)">has</b>
+        </div>
+      </div>
+      <div class="hh-result" id="hhResult">
+        <div class="big" data-t="hh_placeholder">Таңдаңыз…</div>
+        <div class="exm" data-t="hh_placeholder2">Мұнда мысал сөйлем пайда болады.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= V3 ================= -->
+<section class="section" id="v3">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-kicker" data-t="kick_v3">Сөздік</span>
+      <h2 class="section-title" data-t="v3_title">V3 — Past Participle</h2>
+      <p class="section-sub" data-t="v3_sub">Present Perfect формасында етістіктің үшінші формасы (V3) қолданылады.</p>
+    </div>
+    <p class="reveal" style="text-align:center;color:var(--muted);margin-bottom:26px;font-size:14.5px" data-t="v3_hint">Карточканы басыңыз → аудармасы мен мысал сөйлемі шығады.</p>
+    <div class="verb-grid reveal" id="verbGrid"></div>
+  </div>
+</section>
+
+<!-- ================= COMPARE ================= -->
+<section class="section alt" id="compare">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-kicker" data-t="kick_compare">Салыстыру</span>
+      <h2 class="section-title" data-t="cmp_title">Қазақ және ағылшын тілдеріндегі шақтарды салыстыру</h2>
+      <p class="section-sub" data-t="cmp_sub">Ана тіліңдегі біліміңді пайдаланып, Present Perfect мағынасын түсін.</p>
+    </div>
+
+    <div class="reveal" style="overflow-x:auto;margin-bottom:26px">
+      <table class="ex-table">
+        <thead>
+          <tr>
+            <th data-t="th_kz2">Қазақ тілі</th>
+            <th data-t="th_en2">English</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="kz-cell" data-t="cmp_r1_kz">Мен үй тапсырмамды орындадым.</td>
+            <td class="en-cell">I have done my homework.</td>
+          </tr>
+          <tr class="explain-row"><td colspan="2" data-t="cmp_r1_note">Қазақшада өткен шақ, ал ағылшыншада нәтижесі қазір маңызды болғандықтан Present Perfect қолданылды.</td></tr>
+
+          <tr>
+            <td class="kz-cell" data-t="cmp_r2_kz">Ол бөлмесін тазалап қойды.</td>
+            <td class="en-cell">She has cleaned her room.</td>
+          </tr>
+          <tr class="explain-row"><td colspan="2" data-t="cmp_r2_note">«Қойды» қосымшасы әрекеттің аяқталып, нәтижесінің бар екенін көрсетеді — бұл Present Perfect мағынасына жақын.</td></tr>
+
+          <tr>
+            <td class="kz-cell" data-t="cmp_r3_kz">Мен Астанаға барып көрдім.</td>
+            <td class="en-cell">I have been to Astana.</td>
+          </tr>
+          <tr class="explain-row"><td colspan="2" data-t="cmp_r3_note">«Барып көрдім» — өмірлік тәжірибе. Нақты уақыты айтылмайды, сондықтан Present Perfect қолданылады.</td></tr>
+
+          <tr>
+            <td class="kz-cell" data-t="cmp_r4_kz">Мен бұл кітапты оқығанмын.</td>
+            <td class="en-cell">I have read this book.</td>
+          </tr>
+          <tr class="explain-row"><td colspan="2" data-t="cmp_r4_note">«Оқығанмын» — тәжірибе, нәтижесі қазір белгілі. Нақты уақыт көрсетілмейді.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card reveal" style="border-left:5px solid var(--gold);background:var(--gold-soft);border-color:#F3DFA6">
+      <h3 style="color:#8A6400;font-size:16.5px;margin-bottom:10px" data-t="cmp_note_title">⚠️ Маңызды ескерту</h3>
+      <p style="color:#6B4E00;font-size:15px" data-t="cmp_note">Қазақ тіліндегі өткен шақ формасы ағылшын тіліндегі Present Perfect формасымен әрдайым бірдей сәйкес келе бермейді. Ағылшын тілінде әрекеттің қазіргі уақытпен байланысы мен сөйлеушінің мақсаты ескеріледі. Сондықтан «қазақша өткен шақ = ағылшынша Present Perfect» деген қате тұжырым жасауға болмайды.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAST SIMPLE VS PRESENT PERFECT ================= -->
+<section class="section" id="pspp">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-kicker" data-t="kick_pspp">Салыстыру</span>
+      <h2 class="section-title" data-t="pspp_title">Past Simple vs Present Perfect</h2>
+      <p class="section-sub" data-t="pspp_sub">Ең жиі шатасатын екі шақ. Айырмашылығын нақты түсінейік.</p>
+    </div>
+
+    <div class="grid-2 reveal" style="margin-bottom:34px">
+      <div class="card" style="border-top:5px solid var(--sky)">
+        <h3 style="color:var(--blue);font-size:19px;margin-bottom:14px">Past Simple</h3>
+        <p style="font-weight:800;font-size:17px;color:var(--navy);margin-bottom:6px">I visited Astana last year.</p>
+        <p style="color:var(--muted);margin-bottom:14px" data-t="ps_tr">Мен өткен жылы Астанаға бардым.</p>
+        <div style="background:var(--sky-soft);border-radius:11px;padding:12px 15px;font-size:14.5px;color:var(--navy-2);border-left:3px solid var(--sky)" data-t="ps_note">Нақты өткен уақыт: <b>last year</b>. Әрекет қашан болғаны нақты айтылады.</div>
+      </div>
+
+      <div class="card" style="border-top:5px solid var(--gold)">
+        <h3 style="color:var(--gold-dark);font-size:19px;margin-bottom:14px">Present Perfect</h3>
+        <p style="font-weight:800;font-size:17px;color:var(--navy);margin-bottom:6px">I have visited Astana.</p>
+        <p style="color:var(--muted);margin-bottom:14px" data-t="pp_tr">Мен Астанаға барып көрдім.</p>
+        <div style="background:var(--gold-soft);border-radius:11px;padding:12px 15px;font-size:14.5px;color:#6B4E00;border-left:3px solid var(--gold)" data-t="pp_note">Өмірлік тәжірибе маңызды, нақты уақыты айтылмайды.</div>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="color:var(--navy);font-size:19px;margin-bottom:16px" data-t="pspp_table_title">Уақыт көрсеткіштерінің айырмашылығы</h3>
+    <div class="reveal" style="overflow-x:auto;margin-bottom:38px">
+      <table class="ex-table">
+        <thead>
+          <tr>
+            <th>Past Simple</th>
+            <th>Present Perfect</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="en-cell">yesterday</td><td class="en-cell" style="color:var(--gold-dark)">already</td></tr>
+          <tr><td class="en-cell">last year</td><td class="en-cell" style="color:var(--gold-dark)">just</td></tr>
+          <tr><td class="en-cell">two days ago</td><td class="en-cell" style="color:var(--gold-dark)">ever</td></tr>
+          <tr><td class="en-cell">in 2020</td><td class="en-cell" style="color:var(--gold-dark)">never</td></tr>
+          <tr><td class="en-cell">last week</td><td class="en-cell" style="color:var(--gold-dark)">yet</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="reveal" style="color:var(--navy);font-size:19px;margin-bottom:16px" data-t="err_title">Жиі кездесетін қателер</h3>
+    <div class="grid-2 reveal">
+      <div class="card" style="background:var(--red-soft);border-color:#F5C6C6">
+        <p style="font-size:17px;font-weight:700;color:var(--red);margin-bottom:12px">❌ I have went to school.</p>
+        <p style="font-size:14.5px;color:#8A1F1F" data-t="err1">V3 орнына V2 (went) қолданылған.</p>
+      </div>
+      <div class="card" style="background:var(--green-soft);border-color:#B9E8CF">
+        <p style="font-size:17px;font-weight:700;color:var(--green);margin-bottom:12px">✅ I have gone to school.</p>
+        <p style="font-size:14.5px;color:#0B5B31" data-t="err1b">Дұрыс V3 формасы: <b>gone</b>.</p>
+      </div>
+      <div class="card" style="background:var(--red-soft);border-color:#F5C6C6">
+        <p style="font-size:17px;font-weight:700;color:var(--red);margin-bottom:12px">❌ She have finished her work.</p>
+        <p style="font-size:14.5px;color:#8A1F1F" data-t="err2">She — 3-жақ жекеше, сондықтан <b>has</b> керек.</p>
+      </div>
+      <div class="card" style="background:var(--green-soft);border-color:#B9E8CF">
+        <p style="font-size:17px;font-weight:700;color:var(--green);margin-bottom:12px">✅ She has finished her work.</p>
+        <p style="font-size:14.5px;color:#0B5B31" data-t="err2b">Дұрыс көмекші етістік: <b>has</b>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= USAGE ================= -->
+<section class="section tinted" id="usage">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-kicker" data-t="kick_usage">Қолданылуы</span>
+      <h2 class="section-title" data-t="usage_title">Present Perfect қолданылу жағдайлары</h2>
+      <p class="section-sub" data-t="usage_sub">Present Perfect төрт негізгі жағдайда қолданылады.</p>
+    </div>
+
+    <div class="grid-4 reveal">
+      <div class="usage-card">
+        <div class="usage-icon">🌍</div>
+        <h3 data-t="u1_t">1. Өмірлік тәжірибе</h3>
+        <p class="u-ex">I have visited Turkistan.</p>
+        <p class="u-tr" data-t="u1_tr">Мен Түркістанға барып көрдім.</p>
+        <div class="u-when" data-t="u1_w">Қашан қолданамыз? Қашан болғаны маңызды емес, тәжірибенің өзі маңызды болғанда.</div>
+      </div>
+
+      <div class="usage-card">
+        <div class="usage-icon">⏱️</div>
+        <h3 data-t="u2_t">2. Жақында аяқталған әрекет</h3>
+        <p class="u-ex">She has just arrived.</p>
+        <p class="u-tr" data-t="u2_tr">Ол жаңа ғана келді.</p>
+        <div class="u-when" data-t="u2_w">Қашан қолданамыз? just, already, recently сөздерімен бірге, әрекет жақында аяқталғанда.</div>
+      </div>
+
+      <div class="usage-card">
+        <div class="usage-icon">📅</div>
+        <h3 data-t="u3_t">3. Жалғасып келе жатқан әрекет</h3>
+        <p class="u-ex">We have lived here for five years.</p>
+        <p class="u-tr" data-t="u3_tr">Біз осында бес жылдан бері тұрып келеміз.</p>
+        <div class="u-when" data-t="u3_w">Қашан қолданамыз? Әрекет өткенде басталып, қазірге дейін жалғасып келе жатқанда (for / since).</div>
+      </div>
+
+      <div class="usage-card">
+        <div class="usage-icon">🔑</div>
+        <h3 data-t="u4_t">4. Қазіргі нәтижесі маңызды әрекет</h3>
+        <p class="u-ex">I have lost my keys.</p>
+        <p class="u-tr" data-t="u4_tr">Мен кілтімді жоғалтып қойдым.</p>
+        <div class="u-when" data-t="u4_w">Қашан қолданамыз? Әрекеттің нәтижесі қазір көрініп тұрғанда (кілтім жоқ).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARKERS ================= -->
+<section class="section alt" id="markers">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-kicker" data-t="kick_markers">Сөздік</span>
+      <h2 class="section-title" data-t="mk_title">Уақыт көрсеткіштері</h2>
+      <p class="section-sub" data-t="mk_sub">Present Perfect-пен жиі қолданылатын сөздер. Карточканы басып, мысалды көріңіз.</p>
+    </div>
+    <div class="marker-grid reveal" id="markerGrid"></div>
+  </div>
+</section>
+
+<!-- ================= DIFFICULTIES ================= -->
+<section class="section" id="diff">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-kicker" data-t="kick_diff">Ғылыми бөлім</span>
+      <h2 class="section-title" data-t="diff_title">Когнитивтік қиындықтар</h2>
+      <p class="section-sub" data-t="diff_sub">Қазақ тілді оқушылардың Present Perfect формасын меңгерудегі негізгі қиындықтары және оларды жеңу жолдары.</p>
+    </div>
+    <div class="grid-2 reveal" id="diffGrid"></div>
+  </div>
+</section>
+
+<!-- ================= PRACTICE ================= -->
+<section class="section tinted" id="practice">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-kicker" data-t="kick_practice">Практика</span>
+      <h2 class="section-title" data-t="pr_title">Интерактивті жаттығулар</h2>
+      <p class="section-sub" data-t="pr_sub">Біліміңді 5 түрлі тапсырма арқылы бекіт.</p>
+    </div>
+
+    <div class="score-bar reveal">
+      <div class="sb-item"><span class="sb-label" data-t="sb_done">Орындалды:</span><span class="sb-value" id="sbDone">0</span></div>
+      <div class="sb-sep"></div>
+      <div class="sb-item"><span class="sb-label" data-t="sb_correct">Дұрыс:</span><span class="sb-value" id="sbCorrect">0</span></div>
+      <div class="sb-sep"></div>
+      <div class="sb-item"><span class="sb-label" data-t="sb_percent">Пайыз:</span><span class="sb-value" id="sbPercent">0%</span></div>
+    </div>
+
+    <!-- 1. Multiple choice -->
+    <div class="ex-block reveal">
+      <div class="ex-head">
+        <div class="ex-badge">1</div>
+        <h3 data-t="ex1_t">Дұрыс жауапты таңда</h3>
+      </div>
+      <p class="ex-sub" data-t="ex1_sub">Бос орынға сәйкес келетін нұсқаны таңдаңыз.</p>
+      <div id="exMC"></div>
+    </div>
+
+    <!-- 2. Fill in -->
+    <div class="ex-block reveal">
+      <div class="ex-head">
+        <div class="ex-badge">2</div>
+        <h3 data-t="ex2_t">Сөйлемді толықтыр</h3>
+      </div>
+      <p class="ex-sub" data-t="ex2_sub">Етістіктің дұрыс V3 формасын жазыңыз.</p>
+      <div id="exFill"></div>
+    </div>
+
+    <!-- 3. Identify tense -->
+    <div class="ex-block reveal">
+      <div class="ex-head">
+        <div class="ex-badge">3</div>
+        <h3 data-t="ex3_t">Шақты анықта</h3>
+      </div>
+      <p class="ex-sub" data-t="ex3_sub">Бұл сөйлем қай шақта жазылған?</p>
+      <div id="exIdentify"></div>
+    </div>
+
+    <!-- 4. Word order -->
+    <div class="ex-block reveal">
+      <div class="ex-head">
+        <div class="ex-badge">4</div>
+        <h3 data-t="ex4_t">Сөйлем құрастыр</h3>
+      </div>
+      <p class="ex-sub" data-t="ex4_sub">Сөздерді дұрыс ретке келтіріңіз.</p>
+      <div id="exOrder"></div>
+    </div>
+
+    <!-- 5. Translate -->
+    <div class="ex-block reveal">
+      <div class="ex-head">
+        <div class="ex-badge">5</div>
+        <h3 data-t="ex5_t">Қазақшадан ағылшынша аудар</h3>
+      </div>
+      <p class="ex-sub" data-t="ex5_sub">Сөйлемді ағылшын тіліне аударып жазыңыз.</p>
+      <div id="exTranslate"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEST ================= -->
+<section class="section alt" id="test">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-kicker" data-t="kick_test">Бақылау</span>
+      <h2 class="section-title" data-t="test_title">Мини-тест</h2>
+      <p class="section-sub" data-t="test_sub">10 сұрақ. Барлық тақырыпты қамтиды.</p>
+    </div>
+
+    <div class="test-box reveal" id="testBox">
+      <div id="testIntro">
+        <div style="text-align:center;padding:20px 0">
+          <div style="font-size:52px;margin-bottom:14px">📝</div>
+          <h3 style="font-size:22px;color:var(--navy);margin-bottom:10px" data-t="test_intro_t">Біліміңді тексеруге дайынсың ба?</h3>
+          <p style="color:var(--muted);max-width:520px;margin:0 auto 26px" data-t="test_intro_p">10 сұрақ: формула, have/has, V3, Past Simple vs Present Perfect, already/just/yet, since/for, аударма.</p>
+          <button class="btn btn-gold" id="testStart" data-t="test_start">Тестті бастау</button>
+        </div>
+      </div>
+
+      <div id="testQuiz" style="display:none">
+        <div class="test-progress"><span id="testBar"></span></div>
+        <div class="test-q-num" id="testQNum">1 / 10</div>
+        <div class="test-question" id="testQuestion"></div>
+        <div class="test-options" id="testOptions"></div>
+        <div style="text-align:right">
+          <button class="btn btn-navy btn-sm" id="testNext" style="display:none" data-t="test_next">Келесі</button>
+        </div>
+      </div>
+
+      <div class="test-result" id="testResult">
+        <div class="result-score" id="resScore">0<em>/10</em></div>
+        <div class="result-title" id="resTitle"></div>
+        <div class="result-stats">
+          <div class="result-stat"><div class="n" id="resCorrect">0</div><div class="l" data-t="res_correct">Дұрыс жауап</div></div>
+          <div class="result-stat"><div class="n" id="resWrong">0</div><div class="l" data-t="res_wrong">Қате жауап</div></div>
+          <div class="result-stat"><div class="n" id="resPercent">0%</div><div class="l" data-t="res_percent">Нәтиже</div></div>
+        </div>
+        <div class="result-advice" id="resAdvice"></div>
+        <div class="wrong-list" id="wrongList"></div>
+        <button class="btn btn-outline" id="testRetry" data-t="btn_retry">Қайта тапсыру</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROGRESS ================= -->
+<section class="section" id="progress">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-kicker" data-t="kick_progress">Прогресс</span>
+      <h2 class="section-title" data-t="prog_title">Оқу прогресі</h2>
+      <p class="section-sub" data-t="prog_sub">Нәтижелерің браузерде сақталады.</p>
+    </div>
+
+    <div class="prog-grid reveal">
+      <div class="prog-card">
+        <div class="n" id="pgDone">0</div>
+        <div class="l" data-t="prog_done">Орындалған тапсырмалар</div>
+      </div>
+      <div class="prog-card">
+        <div class="n" id="pgPercent">0<em>%</em></div>
+        <div class="l" data-t="prog_acc">Дұрыс жауап пайызы</div>
+      </div>
+      <div class="prog-card">
+        <div class="n" id="pgTest">—</div>
+        <div class="l" data-t="prog_test">Тест нәтижесі</div>
+      </div>
+    </div>
+
+    <h3 class="reveal" style="color:var(--navy);font-size:18px;margin-bottom:16px" data-t="prog_topics">Меңгерілген тақырыптар</h3>
+    <div class="topics-list reveal" id="topicsList"></div>
+
+    <div style="margin-top:30px" class="reveal">
+      <button class="btn btn-outline btn-sm" id="resetProgress" data-t="btn_reset_prog">Прогресті тазалау</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONCLUSION ================= -->
+<section class="section alt" id="concl">
+  <div class="container">
+    <div class="concl-box reveal">
+      <h2 data-t="concl_title">Қорытынды</h2>
+      <p data-t="concl_text">«Present Perfect формасын меңгеру үшін тек ережені жаттап алу жеткіліксіз. Қазақ және ағылшын тілдеріндегі шақ жүйесін салыстыру, мысалдармен жұмыс жасау және практикалық жаттығулар орындау маңызды.»</p>
+      <div class="concl-btns">
+        <a href="#theory" class="btn btn-gold" data-t="btn_reread">Қайта оқу</a>
+        <a href="#test" class="btn btn-ghost" data-t="btn_gotest">Тест тапсыру</a>
+        <a href="#compare" class="btn btn-ghost" data-t="btn_gocompare">Шақтарды салыстыру</a>
+        <a href="#home" class="btn btn-ghost" data-t="btn_gohome">Басты бетке оралу</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span class="logo-mark">TB</span>
+          <div>
+            <strong>TENSE BRIDGE</strong>
+            <small data-t="brand_sub">Шақтар көпірі</small>
+          </div>
+        </div>
+        <p class="footer-note" data-t="footer_note">Қазақ тілді оқушылардың Present Perfect формасын меңгеруіндегі когнитивтік қиындықтары және оларды жеңу жолдары тақырыбындағы ғылыми жоба негізінде жасалған интерактивті электрондық анықтамалық.</p>
+      </div>
+      <div class="footer-info">
+        <div><span data-t="f_author">Автор:</span><span>Нұрланқызы Айкерім</span></div>
+        <div><span data-t="f_sup">Жетекші:</span><span>Әкім Азиза Асылбекқызы</span></div>
+        <div><span data-t="f_school">Мектеп:</span><span>С. Лапин атындағы №261 орта мектебі</span></div>
+        <div><span data-t="f_year">Жылы:</span><span>2026</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 TENSE BRIDGE — «Шақтар көпірі»</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============================================================
+   TENSE BRIDGE — JAVASCRIPT
+   ============================================================ */
+
+/* ---------------- 1. TRANSLATIONS ---------------- */
+const I18N = {
+  kz: {
+    brand_sub: "Шақтар көпірі",
+    nav_home: "Басты бет",
+    nav_theory: "Теория",
+    nav_compare: "Салыстыру",
+    nav_usage: "Қолданылуы",
+    nav_diff: "Қиындықтар",
+    nav_practice: "Жаттығулар",
+    nav_test: "Тест",
+    nav_progress: "Прогресс",
+
+    hero_badge: "Ғылыми жоба негізіндегі электрондық анықтамалық",
+    hero_sub: "Шақтар көпірі",
+    hero_slogan: "«Қазақ тілінен ағылшын тіліндегі шақтар әлеміне саяхат жаса!»",
+    hero_lead: "Present Perfect — өткен уақытта орындалған әрекеттің қазіргі уақытпен байланысын, нәтижесін немесе тәжірибесін білдіретін ағылшын тіліндегі грамматикалық форма.",
+    hero_btn1: "Оқуды бастау",
+    hero_btn2: "Өз біліміңді тексер",
+    hero_btn3: "Шақтарды салыстыру",
+    hero_card_label: "Мысал",
+    hero_card_kz: "Мен үй тапсырмамды орындап қойдым.",
+    hero_card_note: "Бұл сөйлемде әрекет өткен уақытта орындалған, бірақ оның нәтижесі қазіргі уақытпен байланысты.",
+
+    kick_theory: "Теория",
+    theory_title: "Present Perfect дегеніміз не?",
+    theory_sub: "Present Perfect формасын қарапайым тілде түсініп алайық.",
+    theory_def_title: "Анықтамасы",
+    theory_def: "Present Perfect — өткен уақытта орындалған әрекеттің қазіргі уақытпен байланысын, нәтижесін немесе тәжірибесін білдіретін ағылшын тіліндегі грамматикалық форма.",
+    theory_formula_title: "Формуласы",
+    theory_formula_note: "Мұндағы V3 — етістіктің үшінші формасы (Past Participle).",
+    theory_ex_title: "Мысалдар",
+    th_en: "Ағылшынша", th_kz: "Қазақша",
+    th_kz2: "Қазақ тілі", th_en2: "English",
+    ex1_kz: "Мен жобамды аяқтап қойдым.",
+    ex1_note: "Әрекет өткен уақытта орындалды, бірақ оның нәтижесі қазір маңызды: жоба дайын.",
+    ex2_kz: "Ол бөлмесін тазалап қойды.",
+    ex2_note: "She — үшінші жақ жекеше, сондықтан has қолданылады. Нәтиже: бөлме таза.",
+    ex3_kz: "Олар Лондонға барып көрді.",
+    ex3_note: "Бұл — өмірлік тәжірибе. Қашан болғаны маңызды емес, тәжірибенің өзі маңызды.",
+
+    kick_form: "Форма",
+    form_title: "Present Perfect формасының жасалу жолы",
+    form_sub: "Үш түрлі сөйлем түрін бір-бірлеп қарап шығайық.",
+    form_aff_t: "1. Affirmative — Болымды",
+    form_neg_t: "2. Negative — Болымсыз",
+    form_int_t: "3. Interrogative — Сұраулы",
+    f_aff_1: "Мен тамақ жеп қойдым.",
+    f_aff_2: "Ол тамақ жеп қойды.",
+    form_aff_note: "Болымды сөйлемде көмекші етістік subject-тен кейін, негізгі етістіктің V3 формасы соңында тұрады.",
+    f_neg_1: "Мен тамақ жеген жоқпын.",
+    f_neg_2: "Ол тамақ жеген жоқ.",
+    form_neg_note: "Болымсыз сөйлемде not көмекші етістіктен кейін қосылады: have not → haven't, has not → hasn't.",
+    f_int_1: "Сен тамақ жедің бе?",
+    f_int_2: "Ол келді ме?",
+    form_int_note: "Сұраулы сөйлемде көмекші етістік subject-тен бұрын тұрады.",
+
+    kick_hh: "Интерактив",
+    hh_title: "Have / Has таңдау",
+    hh_sub: "Subject таңдаңыз — дұрыс көмекші етістікті көріңіз.",
+    hh_pick: "Subject таңдаңыз:",
+    hh_placeholder: "Таңдаңыз…",
+    hh_placeholder2: "Мұнда мысал сөйлем пайда болады.",
+    hh_you: "Сіз таңдадыңыз:",
+
+    kick_v3: "Сөздік",
+    v3_title: "V3 — Past Participle",
+    v3_sub: "Present Perfect формасында етістіктің үшінші формасы (V3) қолданылады.",
+    v3_hint: "Карточканы басыңыз → аудармасы мен мысал сөйлемі шығады.",
+
+    kick_compare: "Салыстыру",
+    cmp_title: "Қазақ және ағылшын тілдеріндегі шақтарды салыстыру",
+    cmp_sub: "Ана тіліңдегі біліміңді пайдаланып, Present Perfect мағынасын түсін.",
+    cmp_r1_kz: "Мен үй тапсырмамды орындадым.",
+    cmp_r1_note: "Қазақшада өткен шақ, ал ағылшыншада нәтижесі қазір маңызды болғандықтан Present Perfect қолданылды.",
+    cmp_r2_kz: "Ол бөлмесін тазалап қойды.",
+    cmp_r2_note: "«Қойды» қосымшасы әрекеттің аяқталып, нәтижесінің бар екенін көрсетеді — бұл Present Perfect мағынасына жақын.",
+    cmp_r3_kz: "Мен Астанаға барып көрдім.",
+    cmp_r3_note: "«Барып көрдім» — өмірлік тәжірибе. Нақты уақыты айтылмайды, сондықтан Present Perfect қолданылады.",
+    cmp_r4_kz: "Мен бұл кітапты оқығанмын.",
+    cmp_r4_note: "«Оқығанмын» — тәжірибе, нәтижесі қазір белгілі. Нақты уақыт көрсетілмейді.",
+    cmp_note_title: "⚠️ Маңызды ескерту",
+    cmp_note: "Қазақ тіліндегі өткен шақ формасы ағылшын тіліндегі Present Perfect формасымен әрдайым бірдей сәйкес келе бермейді. Ағылшын тілінде әрекеттің қазіргі уақытпен байланысы мен сөйлеушінің мақсаты ескеріледі. Сондықтан «қазақша өткен шақ = ағылшынша Present Perfect» деген қате тұжырым жасауға болмайды.",
+
+    kick_pspp: "Салыстыру",
+    pspp_title: "Past Simple vs Present Perfect",
+    pspp_sub: "Ең жиі шатасатын екі шақ. Айырмашылығын нақты түсінейік.",
+    ps_tr: "Мен өткен жылы Астанаға бардым.",
+    ps_note: "Нақты өткен уақыт: last year. Әрекет қашан болғаны нақты айтылады.",
+    pp_tr: "Мен Астанаға барып көрдім.",
+    pp_note: "Өмірлік тәжірибе маңызды, нақты уақыты айтылмайды.",
+    pspp_table_title: "Уақыт көрсеткіштерінің айырмашылығы",
+    err_title: "Жиі кездесетін қателер",
+    err1: "V3 орнына V2 (went) қолданылған.",
+    err1b: "Дұрыс V3 формасы: gone.",
+    err2: "She — 3-жақ жекеше, сондықтан has керек.",
+    err2b: "Дұрыс көмекші етістік: has.",
+
+    kick_usage: "Қолданылуы",
+    usage_title: "Present Perfect қолданылу жағдайлары",
+    usage_sub: "Present Perfect төрт негізгі жағдайда қолданылады.",
+    u1_t: "1. Өмірлік тәжірибе",
+    u1_tr: "Мен Түркістанға барып көрдім.",
+    u1_w: "Қашан қолданамыз? Қашан болғаны маңызды емес, тәжірибенің өзі маңызды болғанда.",
+    u2_t: "2. Жақында аяқталған әрекет",
+    u2_tr: "Ол жаңа ғана келді.",
+    u2_w: "Қашан қолданамыз? just, already, recently сөздерімен бірге, әрекет жақында аяқталғанда.",
+    u3_t: "3. Жалғасып келе жатқан әрекет",
+    u3_tr: "Біз осында бес жылдан бері тұрып келеміз.",
+    u3_w: "Қашан қолданамыз? Әрекет өткенде басталып, қазірге дейін жалғасып келе жатқанда (for / since).",
+    u4_t: "4. Қазіргі нәтижесі маңызды әрекет",
+    u4_tr: "Мен кілтімді жоғалтып қойдым.",
+    u4_w: "Қашан қолданамыз? Әрекеттің нәтижесі қазір көрініп тұрғанда (кілтім жоқ).",
+
+    kick_markers: "Сөздік",
+    mk_title: "Уақыт көрсеткіштері",
+    mk_sub: "Present Perfect-пен жиі қолданылатын сөздер. Карточканы басып, мысалды көріңіз.",
+
+    kick_diff: "Ғылыми бөлім",
+    diff_title: "Когнитивтік қиындықтар",
+    diff_sub: "Қазақ тілді оқушылардың Present Perfect формасын меңгерудегі негізгі қиындықтары және оларды жеңу жолдары.",
+    tag_diff: "Қиындық", tag_cause: "Себебі", tag_solve: "Шешу жолы",
+
+    kick_practice: "Практика",
+    pr_title: "Интерактивті жаттығулар",
+    pr_sub: "Біліміңді 5 түрлі тапсырма арқылы бекіт.",
+    sb_done: "Орындалды:", sb_correct: "Дұрыс:", sb_percent: "Пайыз:",
+    ex1_t: "Дұрыс жауапты таңда", ex1_sub: "Бос орынға сәйкес келетін нұсқаны таңдаңыз.",
+    ex2_t: "Сөйлемді толықтыр", ex2_sub: "Етістіктің дұрыс V3 формасын жазыңыз.",
+    ex3_t: "Шақты анықта", ex3_sub: "Бұл сөйлем қай шақта жазылған?",
+    ex4_t: "Сөйлем құрастыр", ex4_sub: "Сөздерді дұрыс ретке келтіріңіз.",
+    ex5_t: "Қазақшадан ағылшынша аудар", ex5_sub: "Сөйлемді ағылшын тіліне аударып жазыңыз.",
+    btn_check: "Тексеру",
+    btn_clear: "Тазалау",
+    opt_past: "Past Simple",
+    opt_pp: "Present Perfect",
+    order_placeholder: "Сөздерді осында реттеп қойыңыз…",
+    fill_placeholder: "жауап…",
+    tr_placeholder: "Ағылшынша жазыңыз…",
+    fb_correct: "Дұрыс! ✅",
+    fb_wrong: "Қате ❌",
+    fb_answer: "Дұрыс жауап:",
+    fb_need: "Жауапты толық енгізіңіз.",
+    toast_saved: "Прогресс сақталды!",
+
+    kick_test: "Бақылау",
+    test_title: "Мини-тест",
+    test_sub: "10 сұрақ. Барлық тақырыпты қамтиды.",
+    test_intro_t: "Біліміңді тексеруге дайынсың ба?",
+    test_intro_p: "10 сұрақ: формула, have/has, V3, Past Simple vs Present Perfect, already/just/yet, since/for, аударма.",
+    test_start: "Тестті бастау",
+    test_next: "Келесі",
+    test_finish: "Аяқтау",
+    res_correct: "Дұрыс жауап", res_wrong: "Қате жауап", res_percent: "Нәтиже",
+    btn_retry: "Қайта тапсыру",
+    res_excellent: "Тамаша нәтиже!",
+    res_good: "Жақсы нәтиже!",
+    res_mid: "Орташа нәтиже.",
+    res_low: "Тағы жаттығу керек.",
+    adv_excellent: "Present Perfect формасын өте жақсы меңгеріпсің. Енді сөйлеуде де қолданып көр!",
+    adv_good: "Present Perfect формасын жақсы меңгеріп келесің. Тағы бірнеше жаттығу орында.",
+    adv_mid: "Негізін түсінгенсің, бірақ V3 формалары мен уақыт көрсеткіштерін қайталау керек.",
+    adv_low: "Теория бөлімін қайта оқып, have/has пен V3-ті қайта қарап шық. Содан кейін тестті қайта тапсыр.",
+    wrong_title: "Қате жауаптар:",
+
+    kick_progress: "Прогресс",
+    prog_title: "Оқу прогресі",
+    prog_sub: "Нәтижелерің браузерде сақталады.",
+    prog_done: "Орындалған тапсырмалар",
+    prog_acc: "Дұрыс жауап пайызы",
+    prog_test: "Тест нәтижесі",
+    prog_topics: "Меңгерілген тақырыптар",
+    btn_reset_prog: "Прогресті тазалау",
+    reset_confirm: "Прогресті тазалауға сенімдісіз бе?",
+
+    concl_title: "Қорытынды",
+    concl_text: "«Present Perfect формасын меңгеру үшін тек ережені жаттап алу жеткіліксіз. Қазақ және ағылшын тілдеріндегі шақ жүйесін салыстыру, мысалдармен жұмыс жасау және практикалық жаттығулар орындау маңызды.»",
+    btn_reread: "Қайта оқу", btn_gotest: "Тест тапсыру",
+    btn_gocompare: "Шақтарды салыстыру", btn_gohome: "Басты бетке оралу",
+
+    footer_note: "Қазақ тілді оқушылардың Present Perfect формасын меңгеруіндегі когнитивтік қиындықтары және оларды жеңу жолдары тақырыбындағы ғылыми жоба негізінде жасалған интерактивті электрондық анықтамалық.",
+    f_author: "Автор:", f_sup: "Жетекші:", f_school: "Мектеп:", f_year: "Жылы:"
+  },
+
+  en: {
+    brand_sub: "Bridge of Tenses",
+    nav_home: "Home", nav_theory: "Theory", nav_compare: "Comparison",
+    nav_usage: "Usage", nav_diff: "Difficulties", nav_practice: "Practice",
+    nav_test: "Test", nav_progress: "Progress",
+
+    hero_badge: "Interactive e-reference based on a research project",
+    hero_sub: "Bridge of Tenses",
+    hero_slogan: "Travel from Kazakh into the world of English tenses!",
+    hero_lead: "Present Perfect is an English grammatical form that expresses the connection between a past action and the present: its result, or experience.",
+    hero_btn1: "Start learning", hero_btn2: "Test yourself", hero_btn3: "Compare tenses",
+    hero_card_label: "Example",
+    hero_card_kz: "I have finished my homework. — The action happened in the past, but its result is connected with the present.",
+    hero_card_note: "In this sentence the action was completed in the past, but its result matters now.",
+
+    kick_theory: "Theory",
+    theory_title: "What is Present Perfect?",
+    theory_sub: "Let's understand Present Perfect in simple words.",
+    theory_def_title: "Definition",
+    theory_def: "Present Perfect is an English grammatical form that expresses the connection between a past action and the present: its result or experience.",
+    theory_formula_title: "Formula",
+    theory_formula_note: "V3 is the third form of the verb (Past Participle).",
+    theory_ex_title: "Examples",
+    th_en: "English", th_kz: "Kazakh",
+    th_kz2: "Kazakh", th_en2: "English",
+    ex1_kz: "Мен жобамды аяқтап қойдым. (I have finished my project.)",
+    ex1_note: "The action was done in the past, but its result matters now: the project is ready.",
+    ex2_kz: "Ол бөлмесін тазалап қойды. (She has cleaned her room.)",
+    ex2_note: "She is third person singular, so we use has. Result: the room is clean.",
+    ex3_kz: "Олар Лондонға барып көрді. (They have visited London.)",
+    ex3_note: "This is life experience. When it happened is not important — the experience itself matters.",
+
+    kick_form: "Form",
+    form_title: "How Present Perfect is formed",
+    form_sub: "Let's look at the three sentence types one by one.",
+    form_aff_t: "1. Affirmative",
+    form_neg_t: "2. Negative",
+    form_int_t: "3. Interrogative",
+    f_aff_1: "Мен тамақ жеп қойдым. (I have eaten.)",
+    f_aff_2: "Ол тамақ жеп қойды. (She has eaten.)",
+    form_aff_note: "In an affirmative sentence the auxiliary verb comes after the subject, and the V3 form of the main verb comes last.",
+    f_neg_1: "Мен тамақ жеген жоқпын. (I haven't eaten.)",
+    f_neg_2: "Ол тамақ жеген жоқ. (She hasn't eaten.)",
+    form_neg_note: "In a negative sentence not is added after the auxiliary: have not → haven't, has not → hasn't.",
+    f_int_1: "Сен тамақ жедің бе? (Have you eaten?)",
+    f_int_2: "Ол келді ме? (Has she arrived?)",
+    form_int_note: "In a question the auxiliary verb comes before the subject.",
+
+    kick_hh: "Interactive",
+    hh_title: "Choosing Have / Has",
+    hh_sub: "Choose a subject and see the correct auxiliary verb.",
+    hh_pick: "Choose a subject:",
+    hh_placeholder: "Choose…",
+    hh_placeholder2: "An example sentence will appear here.",
+    hh_you: "You chose:",
+
+    kick_v3: "Vocabulary",
+    v3_title: "V3 — Past Participle",
+    v3_sub: "Present Perfect uses the third form of the verb (V3).",
+    v3_hint: "Click a card → the translation and an example sentence appear.",
+
+    kick_compare: "Comparison",
+    cmp_title: "Comparing Kazakh and English tenses",
+    cmp_sub: "Use your mother-tongue knowledge to understand the meaning of Present Perfect.",
+    cmp_r1_kz: "Мен үй тапсырмамды орындадым.",
+    cmp_r1_note: "In Kazakh it is a past tense form, but in English the result matters now, so Present Perfect is used.",
+    cmp_r2_kz: "Ол бөлмесін тазалап қойды.",
+    cmp_r2_note: "The Kazakh suffix «-қойды» shows the action is completed with a visible result — close to Present Perfect.",
+    cmp_r3_kz: "Мен Астанаға барып көрдім.",
+    cmp_r3_note: "«Барып көрдім» is life experience. The exact time is not mentioned, so Present Perfect is used.",
+    cmp_r4_kz: "Мен бұл кітапты оқығанмын.",
+    cmp_r4_note: "«Оқығанмын» is experience; the result is known now. No exact time is given.",
+    cmp_note_title: "⚠️ Important note",
+    cmp_note: "The Kazakh past tense form does not always match the English Present Perfect. In English the connection of the action with the present and the speaker's intention are taken into account. So the conclusion «Kazakh past = English Present Perfect» would be wrong.",
+
+    kick_pspp: "Comparison",
+    pspp_title: "Past Simple vs Present Perfect",
+    pspp_sub: "The two most confused tenses. Let's see the difference clearly.",
+    ps_tr: "Мен өткен жылы Астанаға бардым.",
+    ps_note: "Exact past time: last year. The time when it happened is clearly stated.",
+    pp_tr: "Мен Астанаға барып көрдім.",
+    pp_note: "Life experience matters; the exact time is not stated.",
+    pspp_table_title: "Difference in time markers",
+    err_title: "Common mistakes",
+    err1: "V2 (went) is used instead of V3.",
+    err1b: "The correct V3 form is gone.",
+    err2: "She is 3rd person singular, so has is needed.",
+    err2b: "The correct auxiliary verb is has.",
+
+    kick_usage: "Usage",
+    usage_title: "When Present Perfect is used",
+    usage_sub: "Present Perfect is used in four main situations.",
+    u1_t: "1. Life experience",
+    u1_tr: "Мен Түркістанға барып көрдім. (I have visited Turkistan.)",
+    u1_w: "When do we use it? When the exact time is not important but the experience itself matters.",
+    u2_t: "2. Recently completed action",
+    u2_tr: "Ол жаңа ғана келді. (She has just arrived.)",
+    u2_w: "When do we use it? With just, already, recently — when the action finished recently.",
+    u3_t: "3. Action continuing up to now",
+    u3_tr: "Біз осында бес жылдан бері тұрып келеміз. (We have lived here for five years.)",
+    u3_w: "When do we use it? When the action started in the past and continues now (for / since).",
+    u4_t: "4. Action with an important present result",
+    u4_tr: "Мен кілтімді жоғалтып қойдым. (I have lost my keys.)",
+    u4_w: "When do we use it? When the result of the action is visible now (my keys are missing).",
+
+    kick_markers: "Vocabulary",
+    mk_title: "Time markers",
+    mk_sub: "Words often used with Present Perfect. Click a card to see an example.",
+
+    kick_diff: "Research part",
+    diff_title: "Cognitive difficulties",
+    diff_sub: "The main difficulties Kazakh-speaking students face when mastering Present Perfect, and how to overcome them.",
+    tag_diff: "Difficulty", tag_cause: "Cause", tag_solve: "Solution",
+
+    kick_practice: "Practice",
+    pr_title: "Interactive exercises",
+    pr_sub: "Consolidate your knowledge with 5 different task types.",
+    sb_done: "Completed:", sb_correct: "Correct:", sb_percent: "Percentage:",
+    ex1_t: "Choose the correct answer", ex1_sub: "Choose the option that fits the gap.",
+    ex2_t: "Complete the sentence", ex2_sub: "Write the correct V3 form of the verb.",
+    ex3_t: "Identify the tense", ex3_sub: "Which tense is this sentence in?",
+    ex4_t: "Build a sentence", ex4_sub: "Put the words in the correct order.",
+    ex5_t: "Translate from Kazakh into English", ex5_sub: "Write the English translation of the sentence.",
+    btn_check: "Check", btn_clear: "Clear",
+    opt_past: "Past Simple", opt_pp: "Present Perfect",
+    order_placeholder: "Arrange the words here…",
+    fill_placeholder: "answer…",
+    tr_placeholder: "Write in English…",
+    fb_correct: "Correct! ✅", fb_wrong: "Wrong ❌",
+    fb_answer: "Correct answer:", fb_need: "Please enter a full answer.",
+    toast_saved: "Progress saved!",
+
+    kick_test: "Assessment",
+    test_title: "Mini-test",
+    test_sub: "10 questions covering all topics.",
+    test_intro_t: "Ready to check your knowledge?",
+    test_intro_p: "10 questions: formula, have/has, V3, Past Simple vs Present Perfect, already/just/yet, since/for, translation.",
+    test_start: "Start the test", test_next: "Next", test_finish: "Finish",
+    res_correct: "Correct answers", res_wrong: "Wrong answers", res_percent: "Result",
+    btn_retry: "Try again",
+    res_excellent: "Excellent result!",
+    res_good: "Good result!",
+    res_mid: "Average result.",
+    res_low: "More practice needed.",
+    adv_excellent: "You have mastered Present Perfect very well. Now try using it in speech!",
+    adv_good: "You are doing well with Present Perfect. Do a few more exercises.",
+    adv_mid: "You understand the basics, but you should review V3 forms and time markers.",
+    adv_low: "Read the theory section again and review have/has and V3. Then retake the test.",
+    wrong_title: "Wrong answers:",
+
+    kick_progress: "Progress",
+    prog_title: "Learning progress",
+    prog_sub: "Your results are saved in the browser.",
+    prog_done: "Completed tasks",
+    prog_acc: "Correct answer percentage",
+    prog_test: "Test result",
+    prog_topics: "Mastered topics",
+    btn_reset_prog: "Reset progress",
+    reset_confirm: "Are you sure you want to reset your progress?",
+
+    concl_title: "Conclusion",
+    concl_text: "To master Present Perfect, memorising the rule is not enough. Comparing the tense systems of Kazakh and English, working with examples and doing practical exercises are essential.",
+    btn_reread: "Read again", btn_gotest: "Take the test",
+    btn_gocompare: "Compare tenses", btn_gohome: "Back to home",
+
+    footer_note: "An interactive e-reference created on the basis of a research project on cognitive difficulties of Kazakh-speaking students in mastering the Present Perfect form and ways to overcome them.",
+    f_author: "Author:", f_sup: "Supervisor:", f_school: "School:", f_year: "Year:"
+  },
+
+  ru: {
+    brand_sub: "Мост времён",
+    nav_home: "Главная", nav_theory: "Теория", nav_compare: "Сравнение",
+    nav_usage: "Употребление", nav_diff: "Трудности", nav_practice: "Упражнения",
+    nav_test: "Тест", nav_progress: "Прогресс",
+
+    hero_badge: "Электронный справочник на основе научного проекта",
+    hero_sub: "Мост времён",
+    hero_slogan: "«Путешествуй из казахского в мир английских времён!»",
+    hero_lead: "Present Perfect — грамматическая форма английского языка, выражающая связь прошлого действия с настоящим: его результат или опыт.",
+    hero_btn1: "Начать обучение", hero_btn2: "Проверь себя", hero_btn3: "Сравнить времена",
+    hero_card_label: "Пример",
+    hero_card_kz: "Мен үй тапсырмамды орындап қойдым. — Я сделал домашнюю работу.",
+    hero_card_note: "В этом предложении действие произошло в прошлом, но его результат связан с настоящим.",
+
+    kick_theory: "Теория",
+    theory_title: "Что такое Present Perfect?",
+    theory_sub: "Разберём Present Perfect простыми словами.",
+    theory_def_title: "Определение",
+    theory_def: "Present Perfect — грамматическая форма английского языка, выражающая связь действия, совершённого в прошлом, с настоящим: его результат или опыт.",
+    theory_formula_title: "Формула",
+    theory_formula_note: "V3 — третья форма глагола (Past Participle).",
+    theory_ex_title: "Примеры",
+    th_en: "По-английски", th_kz: "По-казахски",
+    th_kz2: "Казахский", th_en2: "English",
+    ex1_kz: "Мен жобамды аяқтап қойдым. (Я закончил свой проект.)",
+    ex1_note: "Действие совершено в прошлом, но его результат важен сейчас: проект готов.",
+    ex2_kz: "Ол бөлмесін тазалап қойды. (Она убрала свою комнату.)",
+    ex2_note: "She — 3-е лицо ед. ч., поэтому используется has. Результат: комната чистая.",
+    ex3_kz: "Олар Лондонға барып көрді. (Они побывали в Лондоне.)",
+    ex3_note: "Это жизненный опыт. Когда это было — неважно, важен сам опыт.",
+
+    kick_form: "Форма",
+    form_title: "Как образуется Present Perfect",
+    form_sub: "Рассмотрим три типа предложений по порядку.",
+    form_aff_t: "1. Утвердительное",
+    form_neg_t: "2. Отрицательное",
+    form_int_t: "3. Вопросительное",
+    f_aff_1: "Мен тамақ жеп қойдым. (Я поел.)",
+    f_aff_2: "Ол тамақ жеп қойды. (Она поела.)",
+    form_aff_note: "В утвердительном предложении вспомогательный глагол стоит после подлежащего, а форма V3 — в конце.",
+    f_neg_1: "Мен тамақ жеген жоқпын. (Я не ел.)",
+    f_neg_2: "Ол тамақ жеген жоқ. (Она не ела.)",
+    form_neg_note: "В отрицательном предложении not ставится после вспомогательного глагола: have not → haven't, has not → hasn't.",
+    f_int_1: "Сен тамақ жедің бе? (Ты поел?)",
+    f_int_2: "Ол келді ме? (Она пришла?)",
+    form_int_note: "В вопросе вспомогательный глагол ставится перед подлежащим.",
+
+    kick_hh: "Интерактив",
+    hh_title: "Выбор Have / Has",
+    hh_sub: "Выберите подлежащее и увидите правильный вспомогательный глагол.",
+    hh_pick: "Выберите подлежащее:",
+    hh_placeholder: "Выберите…",
+    hh_placeholder2: "Здесь появится пример предложения.",
+    hh_you: "Вы выбрали:",
+
+    kick_v3: "Словарь",
+    v3_title: "V3 — Past Participle",
+    v3_sub: "В Present Perfect используется третья форма глагола (V3).",
+    v3_hint: "Нажмите на карточку → появится перевод и пример предложения.",
+
+    kick_compare: "Сравнение",
+    cmp_title: "Сравнение времён в казахском и английском",
+    cmp_sub: "Используйте знания родного языка, чтобы понять значение Present Perfect.",
+    cmp_r1_kz: "Мен үй тапсырмамды орындадым.",
+    cmp_r1_note: "В казахском это прошедшее время, но в английском результат важен сейчас, поэтому используется Present Perfect.",
+    cmp_r2_kz: "Ол бөлмесін тазалап қойды.",
+    cmp_r2_note: "Аффикс «-қойды» показывает, что действие завершено и есть результат — это близко к Present Perfect.",
+    cmp_r3_kz: "Мен Астанаға барып көрдім.",
+    cmp_r3_note: "«Барып көрдім» — жизненный опыт. Точное время не указано, поэтому используется Present Perfect.",
+    cmp_r4_kz: "Мен бұл кітапты оқығанмын.",
+    cmp_r4_note: "«Оқығанмын» — опыт; результат известен сейчас. Точное время не указывается.",
+    cmp_note_title: "⚠️ Важное замечание",
+    cmp_note: "Форма прошедшего времени в казахском языке не всегда совпадает с английским Present Perfect. В английском учитывается связь действия с настоящим и замысел говорящего. Поэтому вывод «казахское прошедшее = английский Present Perfect» был бы ошибочным.",
+
+    kick_pspp: "Сравнение",
+    pspp_title: "Past Simple vs Present Perfect",
+    pspp_sub: "Два самых путаемых времени. Разберём разницу чётко.",
+    ps_tr: "Мен өткен жылы Астанаға бардым. (Я поехал в Астану в прошлом году.)",
+    ps_note: "Точное прошедшее время: last year. Время указано конкретно.",
+    pp_tr: "Мен Астанаға барып көрдім. (Я побывал в Астане.)",
+    pp_note: "Важен жизненный опыт, точное время не указывается.",
+    pspp_table_title: "Разница в маркерах времени",
+    err_title: "Частые ошибки",
+    err1: "Вместо V3 использована V2 (went).",
+    err1b: "Правильная форма V3: gone.",
+    err2: "She — 3-е лицо ед. ч., поэтому нужно has.",
+    err2b: "Правильный вспомогательный глагол: has.",
+
+    kick_usage: "Употребление",
+    usage_title: "Случаи употребления Present Perfect",
+    usage_sub: "Present Perfect употребляется в четырёх основных случаях.",
+    u1_t: "1. Жизненный опыт",
+    u1_tr: "Мен Түркістанға барып көрдім. (Я побывал в Туркестане.)",
+    u1_w: "Когда используем? Когда неважно, когда это было, а важен сам опыт.",
+    u2_t: "2. Недавно завершённое действие",
+    u2_tr: "Ол жаңа ғана келді. (Она только что пришла.)",
+    u2_w: "Когда используем? С just, already, recently — когда действие завершилось недавно.",
+    u3_t: "3. Действие, продолжающееся до сих пор",
+    u3_tr: "Біз осында бес жылдан бері тұрып келеміз. (Мы живём здесь пять лет.)",
+    u3_w: "Когда используем? Когда действие началось в прошлом и продолжается сейчас (for / since).",
+    u4_t: "4. Действие с важным результатом сейчас",
+    u4_tr: "Мен кілтімді жоғалтып қойдым. (Я потерял ключи.)",
+    u4_w: "Когда используем? Когда результат действия виден сейчас (ключей нет).",
+
+    kick_markers: "Словарь",
+    mk_title: "Маркеры времени",
+    mk_sub: "Слова, часто используемые с Present Perfect. Нажмите на карточку, чтобы увидеть пример.",
+
+    kick_diff: "Научная часть",
+    diff_title: "Когнитивные трудности",
+    diff_sub: "Основные трудности казахскоязычных учащихся при освоении Present Perfect и способы их преодоления.",
+    tag_diff: "Трудность", tag_cause: "Причина", tag_solve: "Решение",
+
+    kick_practice: "Практика",
+    pr_title: "Интерактивные упражнения",
+    pr_sub: "Закрепи знания с помощью 5 типов заданий.",
+    sb_done: "Выполнено:", sb_correct: "Верно:", sb_percent: "Процент:",
+    ex1_t: "Выбери правильный ответ", ex1_sub: "Выберите вариант, подходящий к пропуску.",
+    ex2_t: "Дополни предложение", ex2_sub: "Напишите правильную форму V3 глагола.",
+    ex3_t: "Определи время", ex3_sub: "В каком времени это предложение?",
+    ex4_t: "Составь предложение", ex4_sub: "Расставьте слова в правильном порядке.",
+    ex5_t: "Переведи с казахского на английский", ex5_sub: "Напишите перевод предложения на английский.",
+    btn_check: "Проверить", btn_clear: "Очистить",
+    opt_past: "Past Simple", opt_pp: "Present Perfect",
+    order_placeholder: "Расставьте слова здесь…",
+    fill_placeholder: "ответ…",
+    tr_placeholder: "Напишите по-английски…",
+    fb_correct: "Верно! ✅", fb_wrong: "Неверно ❌",
+    fb_answer: "Правильный ответ:", fb_need: "Введите полный ответ.",
+    toast_saved: "Прогресс сохранён!",
+
+    kick_test: "Контроль",
+    test_title: "Мини-тест",
+    test_sub: "10 вопросов по всем темам.",
+    test_intro_t: "Готов проверить свои знания?",
+    test_intro_p: "10 вопросов: формула, have/has, V3, Past Simple vs Present Perfect, already/just/yet, since/for, перевод.",
+    test_start: "Начать тест", test_next: "Далее", test_finish: "Завершить",
+    res_correct: "Верных ответов", res_wrong: "Неверных ответов", res_percent: "Результат",
+    btn_retry: "Пройти заново",
+    res_excellent: "Отличный результат!",
+    res_good: "Хороший результат!",
+    res_mid: "Средний результат.",
+    res_low: "Нужно больше практики.",
+    adv_excellent: "Ты отлично освоил Present Perfect. Теперь попробуй использовать его в речи!",
+    adv_good: "Ты хорошо осваиваешь Present Perfect. Выполни ещё несколько упражнений.",
+    adv_mid: "Основы ты понимаешь, но стоит повторить формы V3 и маркеры времени.",
+    adv_low: "Перечитай раздел теории, повтори have/has и V3. Затем пройди тест заново.",
+    wrong_title: "Неверные ответы:",
+
+    kick_progress: "Прогресс",
+    prog_title: "Прогресс обучения",
+    prog_sub: "Результаты сохраняются в браузере.",
+    prog_done: "Выполнено заданий",
+    prog_acc: "Процент верных ответов",
+    prog_test: "Результат теста",
+    prog_topics: "Освоенные темы",
+    btn_reset_prog: "Сбросить прогресс",
+    reset_confirm: "Вы уверены, что хотите сбросить прогресс?",
+
+    concl_title: "Заключение",
+    concl_text: "Чтобы освоить Present Perfect, недостаточно выучить правило. Важно сравнивать системы времён казахского и английского языков, работать с примерами и выполнять практические упражнения.",
+    btn_reread: "Читать заново", btn_gotest: "Пройти тест",
+    btn_gocompare: "Сравнить времена", btn_gohome: "На главную",
+
+    footer_note: "Интерактивный электронный справочник, созданный на основе научного проекта о когнитивных трудностях казахскоязычных учащихся при освоении формы Present Perfect и путях их преодоления.",
+    f_author: "Автор:", f_sup: "Руководитель:", f_school: "Школа:", f_year: "Год:"
+  }
+};
+
+/* ---------------- 2. DATA ---------------- */
+
+const SUBJECTS = [
+  { s:'I',   aux:'have', ex:'I have finished my work.',        tr:{kz:'Мен жұмысымды аяқтап қойдым.', en:'I have finished my work.', ru:'Я закончил свою работу.'} },
+  { s:'You', aux:'have', ex:'You have finished your work.',    tr:{kz:'Сен жұмысыңды аяқтап қойдың.', en:'You have finished your work.', ru:'Ты закончил свою работу.'} },
+  { s:'We',  aux:'have', ex:'We have finished our work.',      tr:{kz:'Біз жұмысымызды аяқтап қойдық.', en:'We have finished our work.', ru:'Мы закончили свою работу.'} },
+  { s:'They',aux:'have', ex:'They have finished their work.',  tr:{kz:'Олар жұмысын аяқтап қойды.', en:'They have finished their work.', ru:'Они закончили свою работу.'} },
+  { s:'He',  aux:'has',  ex:'He has finished his work.',       tr:{kz:'Ол жұмысын аяқтап қойды.', en:'He has finished his work.', ru:'Он закончил свою работу.'} },
+  { s:'She', aux:'has',  ex:'She has finished her work.',      tr:{kz:'Ол жұмысын аяқтап қойды.', en:'She has finished her work.', ru:'Она закончила свою работу.'} },
+  { s:'It',  aux:'has',  ex:'It has stopped raining.',         tr:{kz:'Жаңбыр тоқтап қалды.', en:'It has stopped raining.', ru:'Дождь прекратился.'} }
+];
+
+const VERBS = [
+  { v1:'go',     v2:'went',     v3:'gone',     tr:{kz:'бару', en:'to go', ru:'идти'},
+    ex:'She has gone to school.',        exTr:{kz:'Ол мектепке кетіп қалды.', en:'She has gone to school.', ru:'Она ушла в школу.'} },
+  { v1:'eat',    v2:'ate',      v3:'eaten',    tr:{kz:'жеу', en:'to eat', ru:'есть'},
+    ex:'I have eaten breakfast.',        exTr:{kz:'Мен таңғы ас ішіп қойдым.', en:'I have eaten breakfast.', ru:'Я позавтракал.'} },
+  { v1:'see',    v2:'saw',      v3:'seen',     tr:{kz:'көру', en:'to see', ru:'видеть'},
+    ex:'I have seen this film.',         exTr:{kz:'Мен бұл фильмді көргенмін.', en:'I have seen this film.', ru:'Я видел этот фильм.'} },
+  { v1:'do',     v2:'did',      v3:'done',     tr:{kz:'жасау', en:'to do', ru:'делать'},
+    ex:'He has done his homework.',      exTr:{kz:'Ол үй тапсырмасын орындап қойды.', en:'He has done his homework.', ru:'Он сделал домашнюю работу.'} },
+  { v1:'write',  v2:'wrote',    v3:'written',  tr:{kz:'жазу', en:'to write', ru:'писать'},
+    ex:'I have written a letter.',       exTr:{kz:'Мен хат жазып қойдым.', en:'I have written a letter.', ru:'Я написал письмо.'} },
+  { v1:'read',   v2:'read',     v3:'read',     tr:{kz:'оқу', en:'to read', ru:'читать'},
+    ex:'We have read this book.',        exTr:{kz:'Біз бұл кітапты оқығанбыз.', en:'We have read this book.', ru:'Мы читали эту книгу.'} },
+  { v1:'visit',  v2:'visited',  v3:'visited',  tr:{kz:'бару, көру', en:'to visit', ru:'посещать'},
+    ex:'They have visited Astana.',      exTr:{kz:'Олар Астанаға барып көрді.', en:'They have visited Astana.', ru:'Они побывали в Астане.'} },
+  { v1:'finish', v2:'finished', v3:'finished', tr:{kz:'аяқтау', en:'to finish', ru:'заканчивать'},
+    ex:'She has finished her work.',     exTr:{kz:'Ол жұмысын аяқтап қойды.', en:'She has finished her work.', ru:'Она закончила свою работу.'} }
+];
+
+const MARKERS = [
+  { w:'already', tr:{kz:'әлдеқашан, бұрын', en:'already', ru:'уже'},
+    use:{kz:'Әрекет күткеннен ертерек орындалғанын білдіреді. Болымды сөйлемде қолданылады.',
+         en:'Shows that something happened earlier than expected. Used in positive sentences.',
+         ru:'Показывает, что действие произошло раньше ожидаемого. Употребляется в утвердительных предложениях.'},
+    ex:'I have already finished my homework.',
+    exTr:{kz:'Мен үй тапсырмамды әлдеқашан орындап қойдым.', en:'I have already finished my homework.', ru:'Я уже сделал домашнюю работу.'} },
+
+  { w:'just', tr:{kz:'жаңа ғана', en:'just', ru:'только что'},
+    use:{kz:'Жақында ғана аяқталған әрекетті білдіреді.',
+         en:'Expresses an action that has just finished.',
+         ru:'Выражает действие, которое только что завершилось.'},
+    ex:'She has just arrived.',
+    exTr:{kz:'Ол жаңа ғана келді.', en:'She has just arrived.', ru:'Она только что пришла.'} },
+
+  { w:'yet', tr:{kz:'әлі, әлі де', en:'yet', ru:'ещё'},
+    use:{kz:'Болымсыз және сұраулы сөйлемдерде қолданылады, әрекеттің әлі орындалмағанын білдіреді. Сөйлем соңында тұрады.',
+         en:'Used in negative and interrogative sentences to show that the action has not happened yet. Comes at the end.',
+         ru:'Употребляется в отрицательных и вопросительных предложениях; показывает, что действие ещё не совершено. Стоит в конце.'},
+    ex:"I haven't finished my homework yet.",
+    exTr:{kz:'Мен үй тапсырмамды әлі аяқтаған жоқпын.', en:"I haven't finished my homework yet.", ru:'Я ещё не сделал домашнюю работу.'} },
+
+  { w:'ever', tr:{kz:'бірде, әлдеқашан', en:'ever', ru:'когда-либо'},
+    use:{kz:'Сұраулы сөйлемдерде өмірлік тәжірибені сұрау үшін қолданылады.',
+         en:'Used in questions to ask about life experience.',
+         ru:'Употребляется в вопросах для выяснения жизненного опыта.'},
+    ex:'Have you ever been to London?',
+    exTr:{kz:'Сен Лондонда болып көрдің бе?', en:'Have you ever been to London?', ru:'Ты когда-нибудь был в Лондоне?'} },
+
+  { w:'never', tr:{kz:'ешқашан', en:'never', ru:'никогда'},
+    use:{kz:'Тәжірибенің жоқтығын білдіреді.',
+         en:'Expresses the absence of experience.',
+         ru:'Выражает отсутствие опыта.'},
+    ex:'I have never seen snow.',
+    exTr:{kz:'Мен қарды ешқашан көрмеппін.', en:'I have never seen snow.', ru:'Я никогда не видел снег.'} },
+
+  { w:'recently', tr:{kz:'жақында', en:'recently', ru:'недавно'},
+    use:{kz:'Жақында болған әрекетті білдіреді.',
+         en:'Refers to an action that happened recently.',
+         ru:'Обозначает действие, произошедшее недавно.'},
+    ex:'They have recently moved to Astana.',
+    exTr:{kz:'Олар жақында Астанаға көшіп келді.', en:'They have recently moved to Astana.', ru:'Они недавно переехали в Астану.'} },
+
+  { w:'lately', tr:{kz:'соңғы кездері', en:'lately', ru:'в последнее время'},
+    use:{kz:'Соңғы уақыттағы жағдайды сипаттайды.',
+         en:'Describes a situation in the recent period.',
+         ru:'Описывает ситуацию за последнее время.'},
+    ex:'She has been very busy lately.',
+    exTr:{kz:'Ол соңғы кездері өте бос емес.', en:'She has been very busy lately.', ru:'В последнее время она очень занята.'} },
+
+  { w:'since', tr:{kz:'…дан бері (нақты нүкте)', en:'since', ru:'с (определённого момента)'},
+    use:{kz:'Әрекеттің басталу нүктесін көрсетеді.',
+         en:'Shows the starting point of the action.',
+         ru:'Указывает точку начала действия.'},
+    ex:'I have studied English since 2021.',
+    exTr:{kz:'Мен 2021 жылдан бері ағылшын тілін оқып келемін.', en:'I have studied English since 2021.', ru:'Я учу английский с 2021 года.'} },
+
+  { w:'for', tr:{kz:'…бойы (ұзақтық)', en:'for', ru:'в течение (длительность)'},
+    use:{kz:'Уақыт ұзақтығын көрсетеді.',
+         en:'Shows the duration of time.',
+         ru:'Указывает длительность времени.'},
+    ex:'I have studied English for five years.',
+    exTr:{kz:'Мен ағылшын тілін бес жылдан бері оқып келемін.', en:'I have studied English for five years.', ru:'Я учу английский пять лет.'} },
+
+  { w:'so far', tr:{kz:'осы уақытқа дейін', en:'so far', ru:'до сих пор'},
+    use:{kz:'Осы уақытқа дейінгі нәтижені білдіреді.',
+         en:'Refers to the result achieved up to now.',
+         ru:'Обозначает результат, достигнутый до настоящего момента.'},
+    ex:'So far, I have learned 200 words.',
+    exTr:{kz:'Осы уақытқа дейін мен 200 сөз үйрендім.', en:'So far, I have learned 200 words.', ru:'На данный момент я выучил 200 слов.'} },
+
+  { w:'up to now', tr:{kz:'осы уақытқа дейін', en:'up to now', ru:'до настоящего момента'},
+    use:{kz:'Қазіргі сәтке дейінгі жағдайды білдіреді.',
+         en:'Refers to the situation up to the present moment.',
+         ru:'Обозначает ситуацию до настоящего момента.'},
+    ex:'Up to now, she has written three books.',
+    exTr:{kz:'Осы уақытқа дейін ол үш кітап жазды.', en:'Up to now, she has written three books.', ru:'До настоящего момента она написала три книги.'} }
+];
+
+const DIFFICULTIES = [
+  { t:{kz:'Қазақ және ағылшын тілдеріндегі шақ жүйесінің айырмашылығы',
+       en:'Difference between the tense systems of Kazakh and English',
+       ru:'Различие систем времён казахского и английского языков'},
+    c:{kz:'Қазақ тілінде шақ жұрнақ арқылы жасалады, ал ағылшын тілінде аналитикалық форма (have/has + V3) қолданылады.',
+       en:'In Kazakh the tense is formed by a suffix, while in English an analytical form (have/has + V3) is used.',
+       ru:'В казахском время образуется аффиксом, а в английском используется аналитическая форма (have/has + V3).'},
+    s:{kz:'Шақтарды жұрнақпен емес, мағынамен салыстыру керек: әрекеттің қазіргі уақытпен байланысын негізге алу.',
+       en:'Compare tenses by meaning, not by suffixes: focus on how the action is connected with the present.',
+       ru:'Сравнивайте времена по значению, а не по аффиксам: опирайтесь на связь действия с настоящим.'} },
+
+  { t:{kz:'Ана тілінің ықпалы (интерференция)',
+       en:'Mother-tongue influence (interference)',
+       ru:'Влияние родного языка (интерференция)'},
+    c:{kz:'Оқушы қазақша ойлап, сөзбе-сөз аударады, нәтижесінде қате форма шығады.',
+       en:'The student thinks in Kazakh and translates word for word, which produces the wrong form.',
+       ru:'Ученик думает по-казахски и переводит дословно, в результате получается неверная форма.'},
+    s:{kz:'Дайын ағылшын үлгілерін (chunks) жаттау, аудармадан бастамау.',
+       en:'Memorise ready-made English chunks instead of starting from translation.',
+       ru:'Заучивайте готовые английские фразы (chunks), а не начинайте с перевода.'} },
+
+  { t:{kz:'Present Perfect пен Past Simple формаларын шатастыру',
+       en:'Confusing Present Perfect and Past Simple',
+       ru:'Путаница Present Perfect и Past Simple'},
+    c:{kz:'Екеуі де өткен әрекет туралы айтады, сондықтан мағыналық айырмашылық байқалмайды.',
+       en:'Both speak about a past action, so the difference in meaning is not obvious.',
+       ru:'Оба говорят о прошлом действии, поэтому разница в значении не очевидна.'},
+    s:{kz:'Нақты уақыт көрсеткіші (yesterday, last year, in 2020) болса — Past Simple, болмаса — Present Perfect.',
+       en:'If there is an exact time marker (yesterday, last year, in 2020) — Past Simple; otherwise — Present Perfect.',
+       ru:'Если есть точный маркер времени (yesterday, last year, in 2020) — Past Simple; иначе — Present Perfect.'} },
+
+  { t:{kz:'Have/has көмекші етістіктерін дұрыс қолданбау',
+       en:'Incorrect use of the auxiliaries have/has',
+       ru:'Неправильное использование have/has'},
+    c:{kz:'Қазақ тілінде көмекші етістік жоқ, сондықтан оны subject-пен байланыстырып таңдау қиын.',
+       en:'There is no auxiliary verb in Kazakh, so choosing the right one for the subject is difficult.',
+       ru:'В казахском нет вспомогательного глагола, поэтому сложно выбрать правильный для подлежащего.'},
+    s:{kz:'I / You / We / They — have; He / She / It — has деп топтап жаттау.',
+       en:'Learn them in groups: I / You / We / They — have; He / She / It — has.',
+       ru:'Учите группами: I / You / We / They — have; He / She / It — has.'} },
+
+  { t:{kz:'Етістіктің үшінші формасын есте сақтаудағы қиындықтар',
+       en:'Difficulty memorising the third form of the verb',
+       ru:'Сложности с запоминанием третьей формы глагола'},
+    c:{kz:'Дұрыс емес (irregular) етістіктер ережеге бағынбайды, әрқайсысын жеке жаттау керек.',
+       en:'Irregular verbs do not follow a rule; each one must be learnt separately.',
+       ru:'Неправильные глаголы не подчиняются правилу; каждый нужно учить отдельно.'},
+    s:{kz:'Карточкалармен күнде 5–10 етістік қайталау, V1–V2–V3 тізбегін дауыстап айту.',
+       en:'Review 5–10 verbs daily with flashcards, say the V1–V2–V3 chain aloud.',
+       ru:'Повторяйте по 5–10 глаголов ежедневно с карточками, произносите цепочку V1–V2–V3 вслух.'} },
+
+  { t:{kz:'Уақыт көрсеткіштерін дұрыс таңдамау',
+       en:'Choosing time markers incorrectly',
+       ru:'Неправильный выбор маркеров времени'},
+    c:{kz:'already, yet, just, ever сөздерінің мағынасы мен орны айқын емес.',
+       en:'The meaning and position of already, yet, just, ever are not clear.',
+       ru:'Неясны значение и позиция already, yet, just, ever.'},
+    s:{kz:'Әр көрсеткішке бір мысал сөйлем жаттап, оны сөйлеуде қолдану.',
+       en:'Memorise one example sentence for each marker and use it in speech.',
+       ru:'Заучите по одному примеру на каждый маркер и используйте его в речи.'} },
+
+  { t:{kz:'Грамматикалық формуланы жаттағанымен, сөйлеуде қолдана алмау',
+       en:'Knowing the formula but not using it in speech',
+       ru:'Знание формулы без использования в речи'},
+    c:{kz:'Білім пассивті күйде қалады, өйткені практика жеткіліксіз.',
+       en:'The knowledge stays passive because there is not enough practice.',
+       ru:'Знание остаётся пассивным, так как недостаточно практики.'},
+    s:{kz:'Күнде 3 сөйлемді дауыстап айту немесе жазып, өз өмірің туралы айту.',
+       en:'Say or write 3 sentences aloud daily, talking about your own life.',
+       ru:'Ежедневно произносите или пишите 3 предложения о своей жизни.'} },
+
+  { t:{kz:'Бір уақытта бірнеше грамматикалық элементті есте сақтау қиындығы',
+       en:'Difficulty holding several grammatical elements at once',
+       ru:'Сложность удержания нескольких грамматических элементов одновременно'},
+    c:{kz:'Көмекші етістік + V3 + сөз реті + көрсеткіш — когнитивтік жүктеме жоғары.',
+       en:'Auxiliary + V3 + word order + marker — the cognitive load is high.',
+       ru:'Вспомогательный глагол + V3 + порядок слов + маркер — когнитивная нагрузка высокая.'},
+    s:{kz:'Кезең-кезеңімен үйрену: алдымен формула, содан кейін көрсеткіштер, соңында еркін сөйлеу.',
+       en:'Learn step by step: first the formula, then the markers, and finally free speech.',
+       ru:'Учите поэтапно: сначала формула, затем маркеры, в конце — свободная речь.'} }
+];
+
+const TOPICS = [
+  { id:'theory',  kz:'Present Perfect негіздері', en:'Present Perfect basics', ru:'Основы Present Perfect' },
+  { id:'form',    kz:'Форманың жасалуы',          en:'Formation',              ru:'Образование формы' },
+  { id:'hh',      kz:'Have / Has',                en:'Have / Has',             ru:'Have / Has' },
+  { id:'v3',      kz:'V3 — Past Participle',      en:'V3 — Past Participle',   ru:'V3 — Past Participle' },
+  { id:'compare', kz:'Шақтарды салыстыру',        en:'Comparing tenses',       ru:'Сравнение времён' },
+  { id:'pspp',    kz:'Past Simple vs Present Perfect', en:'Past Simple vs Present Perfect', ru:'Past Simple vs Present Perfect' },
+  { id:'usage',   kz:'Қолданылу жағдайлары',      en:'Usage cases',            ru:'Случаи употребления' },
+  { id:'markers', kz:'Уақыт көрсеткіштері',       en:'Time markers',           ru:'Маркеры времени' }
+];
+
+/* -------- Practice data -------- */
+const MC_QUESTIONS = [
+  { sentence:'She ___ finished her homework.', options:['have','has','is'], correct:1,
+    explain:{ kz:'She — 3-жақ жекеше, сондықтан «has» қолданылады.',
+              en:'"She" is third person singular, so we use "has".',
+              ru:'"She" — 3-е лицо ед. ч., поэтому используем "has".' } },
+  { sentence:'I ___ visited London.', options:['has','have','am'], correct:1,
+    explain:{ kz:'I есімдігімен әрдайым «have» қолданылады.',
+              en:'With "I" we always use "have".',
+              ru:'С "I" всегда используется "have".' } },
+  { sentence:'They ___ finished the project.', options:['has','have','is'], correct:1,
+    explain:{ kz:'They — көптік жекеше, сондықтан «have».',
+              en:'"They" takes "have".',
+              ru:'"They" требует "have".' } }
+];
+
+const FILL_QUESTIONS = [
+  { before:'I have', after:'(eat) breakfast.', answer:'eaten',
+    explain:{ kz:'eat етістігінің V3 формасы — eaten.',
+              en:'The V3 form of "eat" is "eaten".',
+              ru:'Форма V3 глагола "eat" — "eaten".' } },
+  { before:'She has', after:'(write) a letter.', answer:'written',
+    explain:{ kz:'write етістігінің V3 формасы — written.',
+              en:'The V3 form of "write" is "written".',
+              ru:'Форма V3 глагола "write" — "written".' } }
+];
+
+const IDENTIFY_QUESTIONS = [
+  { sentence:'I visited Almaty last year.', correct:'past',
+    explain:{ kz:'«last year» — нақты өткен уақыт көрсеткіші, сондықтан Past Simple.',
+              en:'"last year" is an exact past time marker, so it is Past Simple.',
+              ru:'"last year" — точный маркер прошлого, значит Past Simple.' } },
+  { sentence:'She has just arrived.', correct:'pp',
+    explain:{ kz:'«just» көрсеткіші және has + V3 формасы — Present Perfect.',
+              en:'The marker "just" and the form has + V3 indicate Present Perfect.',
+              ru:'Маркер "just" и форма has + V3 указывают на Present Perfect.' } },
+  { sentence:'We have lived here for five years.', correct:'pp',
+    explain:{ kz:'«for five years» — әрекет қазірге дейін жалғасып келеді, Present Perfect.',
+              en:'"for five years" shows the action continues up to now — Present Perfect.',
+              ru:'"for five years" показывает, что действие продолжается до сих пор — Present Perfect.' } }
+];
+
+const ORDER_QUESTIONS = [
+  { words:['have','finished','I','my homework'], answer:'I have finished my homework.',
+    explain:{ kz:'Сөз реті: Subject + have/has + V3.',
+              en:'Word order: Subject + have/has + V3.',
+              ru:'Порядок слов: Subject + have/has + V3.' } },
+  { words:['has','She','cleaned','her room'], answer:'She has cleaned her room.',
+    explain:{ kz:'She — 3-жақ, сондықтан has бірінші орында емес, subject-тен кейін тұрады.',
+              en:'"She" takes "has", which comes after the subject.',
+              ru:'"She" требует "has", который стоит после подлежащего.' } }
+];
+
+const TRANSLATE_QUESTIONS = [
+  { kz:'Мен бұл фильмді көргенмін.',
+    answers:['i have seen this film','i have seen this movie'],
+    display:'I have seen this film.',
+    explain:{ kz:'«Көргенмін» — тәжірибе, сондықтан have + seen (V3).',
+              en:'"Көргенмін" expresses experience, so have + seen (V3).',
+              ru:'«Көргенмін» выражает опыт, поэтому have + seen (V3).' } },
+  { kz:'Ол үй тапсырмасын орындап қойды.',
+    answers:['she has done her homework','she has finished her homework'],
+    display:'She has done her homework.',
+    explain:{ kz:'She — 3-жақ, сондықтан has; do етістігінің V3 формасы — done.',
+              en:'"She" takes "has"; the V3 form of "do" is "done".',
+              ru:'"She" требует "has"; форма V3 глагола "do" — "done".' } }
+];
+
+/* -------- Test data -------- */
+const TEST_QUESTIONS = [
+  { q:'She ___ finished her homework.', options:['have','has','is'], correct:1,
+    explain:{kz:'She — 3-жақ жекеше → has.', en:'"She" is 3rd person singular → has.', ru:'"She" — 3-е лицо ед.ч. → has.'} },
+  { q:'I have ___ my breakfast.', options:['eat','ate','eaten'], correct:2,
+    explain:{kz:'V3 формасы — eaten.', en:'The V3 form is "eaten".', ru:'Форма V3 — "eaten".'} },
+  { q:'I ___ Almaty last year.', options:['have visited','visited','visit'], correct:1,
+    explain:{kz:'«last year» — нақты уақыт → Past Simple.', en:'"last year" is exact time → Past Simple.', ru:'"last year" — точное время → Past Simple.'} },
+  { q:'Have you ever ___ to London?', options:['been','gone','went'], correct:0,
+    explain:{kz:'«have been to» — барып көру (тәжірибе).', en:'"have been to" means to have visited (experience).', ru:'"have been to" означает «побывать» (опыт).'} },
+  { q:'We have lived here ___ five years.', options:['since','for','ago'], correct:1,
+    explain:{kz:'«for» — уақыт ұзақтығы.', en:'"for" shows duration.', ru:'"for" указывает длительность.'} },
+  { q:'I have studied English ___ 2021.', options:['since','for','from'], correct:0,
+    explain:{kz:'«since» — нақты басталу нүктесі.', en:'"since" marks the starting point.', ru:'"since" указывает точку начала.'} },
+  { q:'She has ___ arrived.', options:['yet','just','ago'], correct:1,
+    explain:{kz:'«just» — жаңа ғана.', en:'"just" means a moment ago.', ru:'"just" — только что.'} },
+  { q:"I haven't finished my homework ___.", options:['yet','already','ever'], correct:0,
+    explain:{kz:'«yet» — болымсыз сөйлем соңында.', en:'"yet" goes at the end of negative sentences.', ru:'"yet" стоит в конце отрицательных предложений.'} },
+  { q:'Which sentence is correct?', options:['I have went to school.','I have gone to school.','I has gone to school.'], correct:1,
+    explain:{kz:'Дұрыс V3 — gone, және I есімдігімен have қолданылады.', en:'The correct V3 is "gone", and "I" takes "have".', ru:'Правильная V3 — "gone", и с "I" используется "have".'} },
+  { q:'Мен бұл фильмді көргенмін.', options:['I saw this film.','I have seen this film.','I have saw this film.'], correct:1,
+    explain:{kz:'Тәжірибе → I have seen this film.', en:'Experience → I have seen this film.', ru:'Опыт → I have seen this film.'} }
+];
+
+/* ---------------- 3. STATE ---------------- */
+let currentLang = 'kz';
+let stats = { done:0, correct:0, total:0, testScore:null, topics:{} };
+
+const STORAGE_KEY = 'tensebridge_progress_v1';
+
+function loadStats(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(raw){
+      const parsed = JSON.parse(raw);
+      stats = Object.assign({ done:0, correct:0, total:0, testScore:null, topics:{} }, parsed);
+    }
+  }catch(e){ /* localStorage жоқ — жұмысты жалғастырамыз */ }
+}
+function saveStats(){
+  try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(stats)); }catch(e){}
+}
+
+/* ---------------- 4. HELPERS ---------------- */
+const $  = (sel, root=document) => root.querySelector(sel);
+const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+function t(key){
+  const dict = I18N[currentLang] || I18N.kz;
+  return dict[key] !== undefined ? dict[key] : (I18N.kz[key] || key);
+}
+
+function toast(msg){
+  const el = $('#toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(el._timer);
+  el._timer = setTimeout(() => el.classList.remove('show'), 2200);
+}
+
+function normalize(str){
+  return String(str)
+    .toLowerCase()
+    .replace(/[.,!?;:«»"'’`]/g,'')
+    .replace(/\s+/g,' ')
+    .trim();
+}
+
+/* ---------------- 5. LANGUAGE ---------------- */
+function applyLanguage(lang){
+  currentLang = lang;
+  document.documentElement.lang = lang;
+
+  $$('[data-t]').forEach(el => {
+    const key = el.getAttribute('data-t');
+    const val = t(key);
+    if(val !== undefined && val !== null) el.textContent = val;
+  });
+
+  $$('#langSwitch button').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+
+  renderSubjects();
+  renderVerbs();
+  renderMarkers();
+  renderDifficulties();
+  renderPractice();
+  renderTopics();
+  renderProgress();
+  updateScoreBar();
+}
+
+/* ---------------- 6. TABS ---------------- */
+function initTabs(){
+  const tabs = $$('#formTabs .tab-btn');
+  tabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabs.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      $$('.tab-panel').forEach(p => p.classList.remove('active'));
+      const panel = $(`.tab-panel[data-panel="${btn.dataset.tab}"]`);
+      if(panel) panel.classList.add('active');
+    });
+  });
+}
+
+/* ---------------- 7. HAVE / HAS ---------------- */
+let selectedSubject = null;
+
+function renderSubjects(){
+  const grid = $('#subjectGrid');
+  if(!grid) return;
+  grid.innerHTML = '';
+  SUBJECTS.forEach((item, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'subj-btn';
+    btn.textContent = item.s;
+    if(selectedSubject === i) btn.classList.add('active');
+    btn.addEventListener('click', () => {
+      selectedSubject = i;
+      renderSubjects();
+      showSubjectResult(item);
+    });
+    grid.appendChild(btn);
+  });
+}
+
+function showSubjectResult(item){
+  const box = $('#hhResult');
+  if(!box) return;
+  box.innerHTML = `
+    <div class="big">${item.s} <em>${item.aux}</em></div>
+    <div class="exm">${item.ex}</div>
+    <div class="exm-tr">${item.tr[currentLang] || item.tr.kz}</div>
+  `;
+}
+
+/* ---------------- 8. VERBS ---------------- */
+function renderVerbs(){
+  const grid = $('#verbGrid');
+  if(!grid) return;
+  grid.innerHTML = '';
+  VERBS.forEach(v => {
+    const card = document.createElement('div');
+    card.className = 'verb-card';
+    card.innerHTML = `
+      <div class="verb-forms">
+        <span>${v.v1}</span>
+        <span class="arrow">→</span>
+        <span>${v.v2}</span>
+        <span class="arrow">→</span>
+        <span class="v3">${v.v3}</span>
+      </div>
+      <div class="hint">V1 → V2 → V3</div>
+      <div class="verb-extra">
+        <div class="tr">${v.tr[currentLang] || v.tr.kz}</div>
+        <div class="exs">${v.ex}</div>
+        <div class="exs-tr">${v.exTr[currentLang] || v.exTr.kz}</div>
+      </div>
+    `;
+    card.addEventListener('click', () => card.classList.toggle('open'));
+    grid.appendChild(card);
+  });
+}
+
+/* ---------------- 9. MARKERS ---------------- */
+function renderMarkers(){
+  const grid = $('#markerGrid');
+  if(!grid) return;
+  grid.innerHTML = '';
+  MARKERS.forEach(m => {
+    const card = document.createElement('div');
+    card.className = 'marker-card';
+    card.innerHTML = `
+      <div class="w">${m.w}</div>
+      <div class="tr">${m.tr[currentLang] || m.tr.kz}</div>
+      <div class="marker-extra">
+        <div class="use">${m.use[currentLang] || m.use.kz}</div>
+        <div class="ex">${m.ex}</div>
+        <div class="ex-tr">${m.exTr[currentLang] || m.exTr.kz}</div>
+      </div>
+    `;
+    card.addEventListener('click', () => card.classList.toggle('open'));
+    grid.appendChild(card);
+  });
+}
+
+/* ---------------- 10. DIFFICULTIES ---------------- */
+function renderDifficulties(){
+  const grid = $('#diffGrid');
+  if(!grid) return;
+  grid.innerHTML = '';
+  DIFFICULTIES.forEach((d, i) => {
+    const card = document.createElement('div');
+    card.className = 'diff-card';
+    card.innerHTML = `
+      <div class="d-num">${i+1}</div>
+      <h3>${d.t[currentLang] || d.t.kz}</h3>
+      <div class="diff-row">
+        <span class="diff-tag tag-cause">${t('tag_cause')}</span>
+        <p>${d.c[currentLang] || d.c.kz}</p>
+      </div>
+      <div class="diff-row">
+        <span class="diff-tag tag-solve">${t('tag_solve')}</span>
+        <p>${d.s[currentLang] || d.s.kz}</p>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+/* ---------------- 11. SCORE / STATS ---------------- */
+function recordAnswer(isCorrect){
+  stats.total++;
+  stats.done++;
+  if(isCorrect) stats.correct++;
+  saveStats();
+  updateScoreBar();
+  renderProgress();
+}
+
+function updateScoreBar(){
+  const done = stats.done;
+  const correct = stats.correct;
+  const total = stats.total;
+  const pct = total > 0 ? Math.round(correct / total * 100) : 0;
+  const d = $('#sbDone'), c = $('#sbCorrect'), p = $('#sbPercent');
+  if(d) d.textContent = done;
+  if(c) c.textContent = correct;
+  if(p) p.textContent = pct + '%';
+}
+
+/* ---------------- 12. PRACTICE ---------------- */
+const practiceState = {}; // key -> answered
+
+function fbHTML(ok, answerText, explainText, correctLabel){
+  const head = ok ? t('fb_correct') : t('fb_wrong');
+  const ans  = answerText ? `<span class="ans">${correctLabel} <b>${answerText}</b></span>` : '';
+  const exp  = explainText ? `<span class="exp">${explainText}</span>` : '';
+  return `<b>${head}</b>${ans}${exp}`;
+}
+
+function renderPractice(){
+  renderMC();
+  renderFill();
+  renderIdentify();
+  renderOrder();
+  renderTranslate();
+}
+
+/* --- 1. Multiple choice --- */
+function renderMC(){
+  const wrap = $('#exMC');
+  if(!wrap) return;
+  wrap.innerHTML = '';
+
+  MC_QUESTIONS.forEach((q, qi) => {
+    const item = document.createElement('div');
+    item.className = 'q-item';
+
+    const qText = document.createElement('div');
+    qText.className = 'q-text';
+    qText.innerHTML = q.sentence.replace('___','<span class="blank">___</span>');
+    item.appendChild(qText);
+
+    const opts = document.createElement('div');
+    opts.className = 'opt-list';
+
+    const fb = document.createElement('div');
+    fb.className = 'fb';
+
+    q.options.forEach((opt, oi) => {
+      const b = document.createElement('button');
+      b.className = 'opt-btn';
+      b.textContent = opt;
+      b.addEventListener('click', () => {
+        if(item.dataset.answered) return;
+        item.dataset.answered = '1';
+        const ok = oi === q.correct;
+        $$('.opt-btn', opts).forEach((btn, idx) => {
+          btn.disabled = true;
+          if(idx === q.correct) btn.classList.add('correct');
+        });
+        if(!ok) b.classList.add('wrong');
+        fb.className = 'fb show ' + (ok ? 'ok' : 'no');
+        fb.innerHTML = fbHTML(ok, ok ? '' : q.options[q.correct], q.explain[currentLang] || q.explain.kz, t('fb_answer'));
+        recordAnswer(ok);
+      });
+      opts.appendChild(b);
+    });
+
+    item.appendChild(opts);
+    item.appendChild(fb);
+    wrap.appendChild(item);
+  });
+}
+
+/* --- 2. Fill in --- */
+function renderFill(){
+  const wrap = $('#exFill');
+  if(!wrap) return;
+  wrap.innerHTML = '';
+
+  FILL_QUESTIONS.forEach(q => {
+    const item = document.createElement('div');
+    item.className = 'q-item';
+
+    const row = document.createElement('div');
+    row.className = 'fill-row';
+
+    const before = document.createElement('span');
+    before.textContent = q.before + ' ';
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.placeholder = t('fill_placeholder');
+    input.autocomplete = 'off';
+
+    const after = document.createElement('span');
+    after.textContent = ' ' + q.after;
+
+    const btn = document.createElement('button');
+    btn.className = 'btn btn-navy btn-sm';
+    btn.textContent = t('btn_check');
+
+    row.appendChild(before);
+    row.appendChild(input);
+    row.appendChild(after);
+    row.appendChild(btn);
+
+    const fb = document.createElement('div');
+    fb.className = 'fb';
+
+    const check = () => {
+      if(item.dataset.answered) return;
+      const val = normalize(input.value);
+      if(!val){ 
+        fb.className = 'fb show no';
+        fb.innerHTML = `<b>${t('fb_need')}</b>`;
+        return; 
+      }
+      const ok = val === normalize(q.answer);
+      item.dataset.answered = '1';
+      input.disabled = true;
+      input.classList.add(ok ? 'correct' : 'wrong');
+      btn.disabled = true;
+      fb.className = 'fb show ' + (ok ? 'ok' : 'no');
+      fb.innerHTML = fbHTML(ok, ok ? '' : q.answer, q.explain[currentLang] || q.explain.kz, t('fb_answer'));
+      recordAnswer(ok);
+    };
+
+    btn.addEventListener('click', check);
+    input.addEventListener('keydown', e => { if(e.key === 'Enter') check(); });
+
+    item.appendChild(row);
+    item.appendChild(fb);
+    wrap.appendChild(item);
+  });
+}
+
+/* --- 3. Identify tense --- */
+function renderIdentify(){
+  const wrap = $('#exIdentify');
+  if(!wrap) return;
+  wrap.innerHTML = '';
+
+  IDENTIFY_QUESTIONS.forEach(q => {
+    const item = document.createElement('div');
+    item.className = 'q-item';
+
+    const qText = document.createElement('div');
+    qText.className = 'q-text';
+    qText.textContent = q.sentence;
+    item.appendChild(qText);
+
+    const opts = document.createElement('div');
+    opts.className = 'opt-list';
+
+    const fb = document.createElement('div');
+    fb.className = 'fb';
+
+    const choices = [
+      { key:'past', label:t('opt_past') },
+      { key:'pp',   label:t('opt_pp') }
+    ];
+
+    choices.forEach(ch => {
+      const b = document.createElement('button');
+      b.className = 'opt-btn';
+      b.textContent = ch.label;
+      b.addEventListener('click', () => {
+        if(item.dataset.answered) return;
+        item.dataset.answered = '1';
+        const ok = ch.key === q.correct;
+        $$('.opt-btn', opts).forEach(btn => {
+          btn.disabled = true;
+          if(btn.textContent === (q.correct === 'past' ? t('opt_past') : t('opt_pp'))) btn.classList.add('correct');
+        });
+        if(!ok) b.classList.add('wrong');
+        fb.className = 'fb show ' + (ok ? 'ok' : 'no');
+        fb.innerHTML = fbHTML(ok, '', q.explain[currentLang] || q.explain.kz, t('fb_answer'));
+        recordAnswer(ok);
+      });
+      opts.appendChild(b);
+    });
+
+    item.appendChild(opts);
+    item.appendChild(fb);
+    wrap.appendChild(item);
+  });
+}
+
+/* --- 4. Word order --- */
+function renderOrder(){
+  const wrap = $('#exOrder');
+  if(!wrap) return;
+  wrap.innerHTML = '';
+
+  ORDER_QUESTIONS.forEach(q => {
+    const item = document.createElement('div');
+    item.className = 'q-item';
+
+    const answerArea = document.createElement('div');
+    answerArea.className = 'order-area';
+    answerArea.innerHTML = `<span class="placeholder">${t('order_placeholder')}</span>`;
+
+    const bank = document.createElement('div');
+    bank.className = 'word-bank';
+
+    const controls = document.createElement('div');
+    controls.className = 'btn-row';
+
+    const checkBtn = document.createElement('button');
+    checkBtn.className = 'btn btn-navy btn-sm';
+    checkBtn.textContent = t('btn_check');
+
+    const clearBtn = document.createElement('button');
+    clearBtn.className = 'btn btn-outline btn-sm';
+    clearBtn.textContent = t('btn_clear');
+
+    controls.appendChild(checkBtn);
+    controls.appendChild(clearBtn);
+
+    const fb = document.createElement('div');
+    fb.className = 'fb';
+
+    let chosen = [];
+
+    const shuffled = q.words.slice().sort(() => Math.random() - 0.5);
+
+    function draw(){
+      answerArea.innerHTML = '';
+      if(chosen.length === 0){
+        answerArea.innerHTML = `<span class="placeholder">${t('order_placeholder')}</span>`;
+      }else{
+        chosen.forEach((w, idx) => {
+          const chip = document.createElement('button');
+          chip.className = 'word-chip';
+          chip.textContent = w;
+          chip.addEventListener('click', () => {
+            if(item.dataset.answered) return;
+            chosen.splice(idx,1);
+            draw();
+          });
+          answerArea.appendChild(chip);
+        });
+      }
+
+      bank.innerHTML = '';
+      shuffled.forEach(w => {
+        const chip = document.createElement('button');
+        chip.className = 'word-chip';
+        chip.textContent = w;
+        const usedCount = chosen.filter(x => x === w).length;
+        const totalCount = shuffled.filter(x => x === w).length;
+        if(usedCount >= totalCount) chip.classList.add('used');
+        chip.addEventListener('click', () => {
+          if(item.dataset.answered) return;
+          const c = chosen.filter(x => x === w).length;
+          if(c < totalCount){ chosen.push(w); draw(); }
+        });
+        bank.appendChild(chip);
+      });
+    }
+    draw();
+
+    checkBtn.addEventListener('click', () => {
+      if(item.dataset.answered) return;
+      if(chosen.length === 0){
+        fb.className = 'fb show no';
+        fb.innerHTML = `<b>${t('fb_need')}</b>`;
+        return;
+      }
+      const user = normalize(chosen.join(' '));
+      const ok = user === normalize(q.answer);
+      item.dataset.answered = '1';
+      checkBtn.disabled = true;
+      clearBtn.disabled = true;
+      fb.className = 'fb show ' + (ok ? 'ok' : 'no');
+      fb.innerHTML = fbHTML(ok, ok ? '' : q.answer, q.explain[currentLang] || q.explain.kz, t('fb_answer'));
+      recordAnswer(ok);
+    });
+
+    clearBtn.addEventListener('click', () => {
+      if(item.dataset.answered) return;
+      chosen = [];
+      draw();
+      fb.className = 'fb';
+    });
+
+    item.appendChild(answerArea);
+    item.appendChild(bank);
+    item.appendChild(controls);
+    item.appendChild(fb);
+    wrap.appendChild(item);
+  });
+}
+
+/* --- 5. Translate --- */
+function renderTranslate(){
+  const wrap = $('#exTranslate');
+  if(!wrap) return;
+  wrap.innerHTML = '';
+
+  TRANSLATE_QUESTIONS.forEach(q => {
+    const item = document.createElement('div');
+    item.className = 'q-item';
+
+    const qText = document.createElement('div');
+    qText.className = 'q-text';
+    qText.textContent = q.kz;
+    item.appendChild(qText);
+
+    const row = document.createElement('div');
+    row.className = 'fill-row';
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.placeholder = t('tr_placeholder');
+    input.autocomplete = 'off';
+    input.style.width = '100%';
+    input.style.maxWidth = '420px';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn btn-navy btn-sm';
+    btn.textContent = t('btn_check');
+
+    row.appendChild(input);
+    row.appendChild(btn);
+
+    const fb = document.createElement('div');
+    fb.className = 'fb';
+
+    const check = () => {
+      if(item.dataset.answered) return;
+      const val = normalize(input.value);
+      if(!val){
+        fb.className = 'fb show no';
+        fb.innerHTML = `<b>${t('fb_need')}</b>`;
+        return;
+      }
+      const ok = q.answers.some(a => normalize(a) === val);
+      item.dataset.answered = '1';
+      input.disabled = true;
+      input.classList.add(ok ? 'correct' : 'wrong');
+      btn.disabled = true;
+      fb.className = 'fb show ' + (ok ? 'ok' : 'no');
+      fb.innerHTML = fbHTML(ok, ok ? '' : q.display, q.explain[currentLang] || q.explain.kz, t('fb_answer'));
+      recordAnswer(ok);
+    };
+
+    btn.addEventListener('click', check);
+    input.addEventListener('keydown', e => { if(e.key === 'Enter') check(); });
+
+    item.appendChild(row);
+    item.appendChild(fb);
+    wrap.appendChild(item);
+  });
+}
+
+/* ---------------- 13. TEST ---------------- */
+let testIndex = 0;
+let testAnswers = [];
+let testLocked = false;
+
+function initTest(){
+  const startBtn = $('#testStart');
+  const nextBtn  = $('#testNext');
+  const retryBtn = $('#testRetry');
+  if(startBtn) startBtn.addEventListener('click', startTest);
+  if(nextBtn)  nextBtn.addEventListener('click', nextQuestion);
+  if(retryBtn) retryBtn.addEventListener('click', startTest);
+}
+
+function startTest(){
+  testIndex = 0;
+  testAnswers = [];
+  testLocked = false;
+  $('#testIntro').style.display = 'none';
+  $('#testResult').classList.remove('show');
+  $('#testQuiz').style.display = 'block';
+  showQuestion();
+}
+
+function showQuestion(){
+  const q = TEST_QUESTIONS[testIndex];
+  testLocked = false;
+
+  $('#testQNum').textContent = (testIndex + 1) + ' / ' + TEST_QUESTIONS.length;
+  $('#testBar').style.width = ((testIndex) / TEST_QUESTIONS.length * 100) + '%';
+  $('#testQuestion').textContent = q.q;
+
+  const opts = $('#testOptions');
+  opts.innerHTML = '';
+  q.options.forEach((opt, oi) => {
+    const b = document.createElement('button');
+    b.className = 'test-opt';
+    b.textContent = opt;
+    b.addEventListener('click', () => selectAnswer(oi, b));
+    opts.appendChild(b);
+  });
+
+  $('#testNext').style.display = 'none';
+}
+
+function selectAnswer(oi, btnEl){
+  if(testLocked) return;
+  testLocked = true;
+
+  const q = TEST_QUESTIONS[testIndex];
+  const ok = oi === q.correct;
+
+  const opts = $$('#testOptions .test-opt');
+  opts.forEach((b, idx) => {
+    b.disabled = true;
+    if(idx === q.correct) b.classList.add('correct');
+  });
+  if(!ok) btnEl.classList.add('wrong');
+
+  testAnswers.push({
+    q: q.q,
+    userAnswer: q.options[oi],
+    correctAnswer: q.options[q.correct],
+    ok: ok,
+    explain: q.explain
+  });
+
+  recordAnswer(ok);
+
+  $('#testNext').style.display = 'inline-flex';
+  $('#testNext').textContent = (testIndex === TEST_QUESTIONS.length - 1) ? t('test_finish') : t('test_next');
+}
+
+function nextQuestion(){
+  if(testIndex < TEST_QUESTIONS.length - 1){
+    testIndex++;
+    showQuestion();
+  }else{
+    finishTest();
+  }
+}
+
+function finishTest(){
+  $('#testQuiz').style.display = 'none';
+  $('#testResult').classList.add('show');
+
+  const correct = testAnswers.filter(a => a.ok).length;
+  const wrong = TEST_QUESTIONS.length - correct;
+  const percent = Math.round(correct / TEST_QUESTIONS.length * 100);
+
+  $('#resScore').innerHTML = correct + '<em>/' + TEST_QUESTIONS.length + '</em>';
+  $('#resCorrect').textContent = correct;
+  $('#resWrong').textContent = wrong;
+  $('#resPercent').textContent = percent + '%';
+
+  let title = '', advice = '';
+  if(percent >= 90){ title = t('res_excellent'); advice = t('adv_excellent'); }
+  else if(percent >= 70){ title = t('res_good'); advice = t('adv_good'); }
+  else if(percent >= 50){ title = t('res_mid'); advice = t('adv_mid'); }
+  else { title = t('res_low'); advice = t('adv_low'); }
+
+  $('#resTitle').textContent = title;
+  $('#resAdvice').textContent = advice;
+
+  const wl = $('#wrongList');
+  if(wrong > 0){
+    let html = `<h4>${t('wrong_title')}</h4>`;
+    testAnswers.filter(a => !a.ok).forEach(a => {
+      html += `<div class="wrong-item">
+        <b>${a.q}</b>
+        ${a.userAnswer} <span style="opacity:.6">→</span> <span class="right">${a.correctAnswer}</span><br>
+        <span style="font-size:13.5px;opacity:.85">${a.explain[currentLang] || a.explain.kz}</span>
+      </div>`;
+    });
+    wl.innerHTML = html;
+  }else{
+    wl.innerHTML = '';
+  }
+
+  stats.testScore = correct;
+  saveStats();
+  renderProgress();
+
+  $('#testBar').style.width = '100%';
+}
+
+/* ---------------- 14. PROGRESS ---------------- */
+function renderTopics(){
+  const list = $('#topicsList');
+  if(!list) return;
+  list.innerHTML = '';
+  TOPICS.forEach(tp => {
+    const chip = document.createElement('div');
+    const done = !!stats.topics[tp.id];
+    chip.className = 'topic-chip' + (done ? ' done' : '');
+    chip.innerHTML = `<span class="tick">✓</span>${tp[currentLang] || tp.kz}`;
+    list.appendChild(chip);
+  });
+}
+
+function renderProgress(){
+  const done = $('#pgDone');
+  const pct  = $('#pgPercent');
+  const test = $('#pgTest');
+  if(!done) return;
+
+  done.textContent = stats.done;
+  const percent = stats.total > 0 ? Math.round(stats.correct / stats.total * 100) : 0;
+  pct.innerHTML = percent + '<em>%</em>';
+  test.textContent = (stats.testScore === null) ? '—' : (stats.testScore + '/10');
+
+  renderTopics();
+}
+
+function markTopicViewed(id){
+  if(!stats.topics[id]){
+    stats.topics[id] = true;
+    saveStats();
+    renderTopics();
+  }
+}
+
+function initTopicObserver(){
+  const map = {
+    theory:'theory', form:'form', hh:'hh', v3:'v3',
+    compare:'compare', pspp:'pspp', usage:'usage', markers:'markers'
+  };
+  const seen = {};
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        if(map[id] && !seen[id]){
+          seen[id] = true;
+          setTimeout(() => markTopicViewed(map[id]), 900);
+        }
+      }
+    });
+  }, { threshold: 0.25 });
+
+  Object.keys(map).forEach(id => {
+    const el = document.getElementById(id);
+    if(el) observer.observe(el);
+  });
+}
+
+/* ---------------- 15. REVEAL ANIMATIONS ---------------- */
+function initReveal(){
+  const els = $$('.reveal');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(el => el.classList.add('visible'));
+    return;
+  }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => obs.observe(el));
+}
+
+/* ---------------- 16. NAVIGATION ---------------- */
+function initNav(){
+  const burger = $('#burger');
+  const nav = $('#mainNav');
+
+  if(burger){
+    burger.addEventListener('click', () => {
+      nav.classList.toggle('open');
+      burger.classList.toggle('open');
+    });
+  }
+
+  $$('#mainNav a').forEach(a => {
+    a.addEventListener('click', () => {
+      nav.classList.remove('open');
+      if(burger) burger.classList.remove('open');
+    });
+  });
+
+  const header = $('#siteHeader');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 12) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  }, { passive:true });
+
+  // Active link highlighting
+  const sections = $$('section[id]');
+  const navLinks = $$('#mainNav a');
+  const linkObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        const id = entry.target.id;
+        navLinks.forEach(l => {
+          l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { threshold: 0.4 });
+  sections.forEach(s => linkObs.observe(s));
+}
+
+/* ---------------- 17. RESET ---------------- */
+function initReset(){
+  const btn = $('#resetProgress');
+  if(!btn) return;
+  btn.addEventListener('click', () => {
+    if(confirm(t('reset_confirm'))){
+      stats = { done:0, correct:0, total:0, testScore:null, topics:{} };
+      saveStats();
+      updateScoreBar();
+      renderProgress();
+      toast(t('toast_saved'));
+    }
+  });
+}
+
+/* ---------------- 18. INIT ---------------- */
+document.addEventListener('DOMContentLoaded', () => {
+  loadStats();
+
+  // Language switch
+  $$('#langSwitch button').forEach(btn => {
+    btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+  });
+
+  initTabs();
+  initNav();
+  initTest();
+  initReveal();
+  initReset();
+  initTopicObserver();
+
+  applyLanguage('kz');
+  updateScoreBar();
+  renderProgress();
+});
+</script>
+</body>
+</html>
